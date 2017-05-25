@@ -3,12 +3,12 @@
  *
  * Code generated for Simulink model 'ChargeOverCurrent'.
  *
- * Model version                  : 1.114
+ * Model version                  : 1.108
  * Simulink Coder version         : 8.10 (R2016a) 10-Feb-2016
- * C/C++ source code generated on : Fri Dec 09 10:22:52 2016
+ * C/C++ source code generated on : Tue May 23 17:08:52 2017
  *
  * Target selection: ert.tlc
- * Embedded hardware selection: 32-bit Generic
+ * Embedded hardware selection: Freescale->HC(S)12
  * Code generation objectives: Unspecified
  * Validation result: Not run
  */
@@ -34,14 +34,14 @@ void rt_OneStep(void)
 {
   static boolean_T OverrunFlag = false;
 
-  /* '<Root>/In1' */
-  static real32_T g_BatSysTotalCur = 0.0F;
+  /* '<Root>/cur' */
+  static real32_T cur = 0.0F;
 
-  /* '<Root>/In2' */
-  static real32_T curtValue = 0.0F;
+  /* '<Root>/curM' */
+  static real32_T curM = 0.0F;
 
-  /* '<Root>/Out1' */
-  static uint8_T F_level;
+  /* '<Root>/F_lev' */
+  static uint8_T F_lev;
 
   /* Disable interrupts here */
 
@@ -58,7 +58,7 @@ void rt_OneStep(void)
   /* Set model inputs here */
 
   /* Step the model */
-  F_level = ChargeOverCurrent_step(g_BatSysTotalCur, curtValue);
+  F_lev = ChargeOverCurrent_custom(cur, curM);
 
   /* Get model outputs here */
 

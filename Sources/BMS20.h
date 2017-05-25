@@ -3,13 +3,12 @@
 //---------------------- Pride Power------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------
-//* Project Name       : S305
+//* Project Name       : S223
 //* File Name          : BMS.h
 //* Author             : Judy
 //* Version            : V1.0.0
 //* Start Date         : 2011,05,26
 //* Description        : 该文件作为系统头文件，对该项目的系统参数进行定义和对所有全局变量进行全局声明
-//* Modified           : ggg @2017.5.25
 //----------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------
@@ -17,69 +16,68 @@
 
 //----------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------
-//----------------------------------每个项目必须要修改的参数------------------------------------------
+//----------------------------------每个项目必须要修改的参数---------------------------------------------------------
 //----------------------------------------------------------------------------------------------------
 
 ///////////////////////////////////系统参数//////////////////////////////////
-#define StoreAHState        0       // 定义是否可以存储
-#define BMU_NUMBER          5       // BMU个数
-#define G_BMU_CIRCLE_FLAG   0x1111  // BMU个数
-#define C                   240     // 充电倍率
-//#define DubugMode           1       // 发送状态机报文
+#define StoreAHState 0            //定义是否可以存储
+#define BMU_NUMBER 5              // BMU个数
+#define G_BMU_CIRCLE_FLAG 0x11111    //BMU个数
+#define C      176               //充电倍率
+//#define DubugMode      1          //发送状态机报文
 
 //////////////////////////////////直流快充//////////////////////////////////
-#define HIGHEST_ALLOWED_CHARGE_CV   3.65    //最大允许充电单体电压 V
-#define BATTERYCELLNUMBER           168     //电池单体串数
-#define HIGHEST_ALLOWED_CHARGE_V    BATTERYCELLNUMBER * HIGHEST_ALLOWED_CHARGE_CV //最大允许充电总电压V=3.65*168
-#define HIGHEST_ALLOWED_CHARGE_T    54      //最大允许充电温度   54
-#define LOWEST_ALLOWED_CHARGE_T     -20     //最大允许充电温度   -20
-#define CHARGE_CUTDOWN_CV1          3.55    //第一次降流电压
-#define CHARGE_CUTDOWN_CV2          3.65    //第二次降流电压
-#define HIGHEST_ALLOWED_CHARGE_A    240.0   //直流最大允许充电电流 A
-#define SYS_NOMINAL_AH              240     //系统额定容量 AH
-#define SYS_NOMINAL_V               3.2 * BATTERYCELLNUMBER           //系统额定电压 V//3.2*168
-#define SYS_KWH                     3.2 * C * BATTERYCELLNUMBER/1000    //系统能量  //240*3.2*168
-#define LOWEST_ALLOWED_DISCHARGE_V  2.5 * BATTERYCELLNUMBER           //最小允许充电总电压 V=2.5*168
-#define CONSTANT_VOL_WORK           1       //恒压工作
-#define CONSTANT_CURT_WORK          2       //恒流工作
-#define CELL_TYPE                   3       //01铅酸电池;02镍氢电池;03:磷酸铁锂;04:锰酸铁锂;
-                                            //05:钴酸锂;06:三元;07:聚合物;08:钛酸锂;FFH:其他
+#define HIGHEST_ALLOWED_CHARGE_CV 3.65    //最大允许充电单体电压 V
+#define HIGHEST_ALLOWED_CHARGE_V BATTERYCELLNUMBER*HIGHEST_ALLOWED_CHARGE_CV      //最大允许充电总电压 V   3.65*192
+#define BATTERYCELLNUMBER   189           //电池单体串数
+#define HIGHEST_ALLOWED_CHARGE_T 54       //最大允许充电温度   54
+#define LOWEST_ALLOWED_CHARGE_T -20       //最大允许充电温度   -20
+#define CHARGE_CUTDOWN_CV1 3.55           //第一次降流电压
+#define CHARGE_CUTDOWN_CV2 3.65           //第二次降流电压
+#define HIGHEST_ALLOWED_CHARGE_A  176.0   //直流最大允许充电电流 A
+#define SYS_NOMINAL_AH 176                //系统额定容量 AH
+#define SYS_NOMINAL_V  3.2*BATTERYCELLNUMBER                //系统额定电压 V//3.2*192
+#define SYS_KWH        3.2*C*BATTERYCELLNUMBER/1000               //系统能量  //240*3.2*192
+#define LOWEST_ALLOWED_DISCHARGE_V  2.5*BATTERYCELLNUMBER  //最小允许充电总电压 V   2.5*192
+#define CONSTANT_VOL_WORK 1               //恒压工作
+#define CONSTANT_CURT_WORK 2              //恒流工作
+#define CELL_TYPE 3                       //01铅酸电池;02镍氢电池;03:磷酸铁锂;04:锰酸铁锂;
+                                          //05:钴酸锂;06:三元;07:聚合物;08:钛酸锂;FFH:其他
                                           
-#define HIGHEST_VOL                 6900    //CML充电机规格:最大输出能力 
-#define LOWEST_VOL                  4725    //CML充电机规格:最小输出能力
+#define HIGHEST_VOL 6900 //CML充电机规格:最大输出能力 
+#define LOWEST_VOL 4725 //CML充电机规格:最小输出能力
 
-#define CC2VOLHIGH                  6.8     //CC2测量范围高
-#define CC2VOLLOW                   4.5     //CC2测量范围低
-
+#define CC2VOLHIGH 6.8  //CC2测量范围高
+#define CC2VOLLOW  4.5 //CC2测量范围低
 ////////////////////////加热参数配置//////////////////////////////////////////////
-#define HIGHEST_ALLOWED_HEAT_CHARGE_V       BATTERYCELLNUMBER * HIGHEST_ALLOWED_CHARGE_CV //最大允许加热充电总电压 V=3.65*168
-#define HIGHEST_ALLOWED_HEAT_CHARGE_C       2.13    //最大允许加热充电电流 A
-#define START_ALLOWED_PreHEAT_CHARGE_TEM    0       //开启预加热阀值
-#define STOP_ALLOWED_PreHEAT_CHARGE_TEM     5       //关闭预加热阀值  
-#define START_ALLOWED_HEAT_CHARGE_TEM       10      //开启加热阀值
-#define STOP_ALLOWED_HEAT_CHARGE_TEM        15      //关闭加热阀值 
+#define HIGHEST_ALLOWED_HEAT_CHARGE_V BATTERYCELLNUMBER*HIGHEST_ALLOWED_CHARGE_CV      //最大允许加热充电总电压 V   3.65*192
+#define HIGHEST_ALLOWED_HEAT_CHARGE_C 2.13     //最大允许加热充电电流 A
+#define START_ALLOWED_PreHEAT_CHARGE_TEM 0   //开启预加热阀值
+#define STOP_ALLOWED_PreHEAT_CHARGE_TEM 5    //关闭预加热阀值  
+#define START_ALLOWED_HEAT_CHARGE_TEM 10        //开启加热阀值
+#define STOP_ALLOWED_HEAT_CHARGE_TEM  15       //关闭加热阀值 
 
 
 ///////////////////////BMS最后保护的阀值///////////////////////
-#define LOWEST_CELL_VOL     2.5     //放电最小单体电压
-#define HIGHEST_CELL_VOL    3.9     //充电单体最大单体电压
-#define HIGHEST_BATT_VOL    BATTERYCELLNUMBER * HIGHEST_ALLOWED_CHARGE_CV //最大总电压3.65*168 
-#define HIGHEST_TEM         54      //最高温度54
+#define LOWEST_CELL_VOL  2.5       //放电最小单体电压
+#define HIGHEST_CELL_VOL 3.9      //充电单体最大单体电压
+#define HIGHEST_BATT_VOL BATTERYCELLNUMBER*HIGHEST_ALLOWED_CHARGE_CV       //最大总电压3.65*192 
+#define HIGHEST_TEM 54             //最高温度54
 
 //////////////////////BMS功率变化速度//////////////////////////
-#define POWERSPEED  0.5     //功率的变化速度
+#define POWERSPEED  0.5       //功率的变化速度
 
 //////////////////////高压等级:BMS绝缘计算采样电阻值//////////////////////////
-#define RESVALUE    0.2     //采样电阻为0.2K
+#define RESVALUE  0.2       //采样电阻为0.2K
 
 //////////////////////BMS标定高压时的配置电压//////////////////////////
-#define HIGHVOL_19  350     //发送0x19时对应的电压
-#define HIGHVOL_23  550     //发送0x23时对应的电压
+#define HIGHVOL_19    350       //发送0x19时对应的电压
+#define HIGHVOL_23    550      //发送0x23时对应的电压
 
 
 #include <hidef.h>      /* common defines and macros */
 #include <string.h>
-#include "derivative.h" /* derivative-specific definitions */
+#include "derivative.h"      /* derivative-specific definitions */
 //底层头文件
 #include  "mc9s12gpio.h"
 #include  "74hc595.h"
@@ -133,7 +131,7 @@
 #include "rtwtypes.h"
 #include "look2_iflf_linlcapw.h"
 
-#include "canmessgae.h"
+#include "zhongche.h"
 //#include "can_message.h"
 //#include "can_union.h"
 
@@ -142,26 +140,23 @@
 #include "TotalVoltageOverVoltage_cellnum_private.h"
 #include "TotalVoltageUnderVoltage_cellnum.h"
 #include "TotalVoltageUnderVoltage_cellnum_private.h"
-
-//************************************************************************
-//************************************************************************
-#define uchar unsigned char
-#define uint  unsigned int
-#define ulong unsigned long
-
-#define HIGH 0
-#define LOW 1
-
+//*******************************************
+//*******************************************
+#define  uchar unsigned char
+#define  uint  unsigned int
+#define  ulong unsigned long
+#define  HIGH 0
+#define  LOW 1
 
 // 任务结构
 typedef struct _TASK_COMPONENTS
 {
-    uchar   Run;                // 程序运行标记：0-不运行，1运行
-    uint    Timer;              // 计时器
-    uint    ItvTime;            // 任务运行间隔时间
-    void    (*TaskHook)(void);  // 要运行的任务函数
-} TASK_COMPONENTS;              // 任务定义
-
+    uchar Run;                 // 程序运行标记：0-不运行，1运行
+    uint Timer;                // 计时器
+    uint ItvTime;              // 任务运行间隔时间
+    void (*TaskHook)(void);    // 要运行的任务函数
+} TASK_COMPONENTS;       // 任务定义
+/////////
 //************************************************************************
 //************************************************************************
 // 任务清单
@@ -178,25 +173,22 @@ typedef enum _TASK_LIST
     //TASK_DC_RECHARGE,
     TASK_RECORD,
     //GetTavgProcess()
-    TASKS_MAX           // 总的可供分配的定时任务数目                                     
+    TASKS_MAX      // 总的可供分配的定时任务数目                                     
 } TASK_LIST;
-
-//************************************************************************
-//************************************************************************
+////////
 enum slaveNumber
 {
-    S0,
-    S1,
-    S2,
-    S3,
-    S4,
-    S5,
-    S6,
-    S7
+S0,
+S1,
+S2,
+S3,
+S4,
+S5,
+S6,
+S7
 };
-
-//************************************************************************
-//************************************************************************
+//*******************************************
+//*******************************************
 enum parameter_list
 {
     PARA_SOC_VALUE,    //SOC实际值
@@ -246,9 +238,6 @@ enum parameter_list
 
     PARA_ENDFLAG
 };
-
-//************************************************************************
-//************************************************************************
 enum storage_list 
 {
     INDEX,
@@ -291,8 +280,6 @@ enum storage_list
     VERIFICATION  //校验
 };
 
-//************************************************************************
-//************************************************************************
 enum storage_cell_vol_list 
 {  
     CELL_VOLTAGE_0,
@@ -517,41 +504,39 @@ enum storage_cell_vol_list
     CELL_VOLTAGE_199
     
 };
+//    
+#define LITHIUM 1     //0:ATL电池                                               
+#define DEVICE_SERIAL_NUMBER 0x11    //	部件序列号 1byte
+#define HARDWARE_VERSION 0x01    //	硬件版本 低4位有效   
+#define SOFTWARE_VERSION 0x01   // 	软件版本 低4位有效
+#define COMMUNICATION_VERSION 0x01  // 通讯协议版本 低4位有效
+//
+//
+#define ENDFLAG 96
 
-//************************************************************************
-//************************************************************************
-#define LITHIUM                 1       // 0:ATL电池                                               
-#define DEVICE_SERIAL_NUMBER    0x11    // 部件序列号 1byte
-#define HARDWARE_VERSION        0x01    // 硬件版本 低4位有效   
-#define SOFTWARE_VERSION        0x01    // 软件版本 低4位有效
-#define COMMUNICATION_VERSION   0x01    // 通讯协议版本 低4位有效
-
-#define ENDFLAG                 96
-
-#define TURN_ON                 0
-#define TURN_OFF                1
-
-#define DISCHARGING             0       //放电
-#define RECHARGING              2       //充电
-#define FASTRECHARGING          1       //快充
-#define TESTSTATE               4       //调试模式
-
+//
+#define TURN_ON 0
+#define TURN_OFF 1
+//
+#define DISCHARGING 0 //放电
+#define RECHARGING 2  //充电
+#define FASTRECHARGING 1  //快充
+#define TESTSTATE 4  //调试模式
 //************故障等级**************/
-#define FOUR    4
-#define THREE   3
-#define TWO     2
-#define ONE     1
-
-//************ main.c ****************************************************
+#define FOUR 4
+#define THREE 3
+#define TWO 2
+#define ONE 1
+//************ main.c ****************************************
 extern unsigned char BMS_SW_Version[8];
 extern unsigned char BMUOK;
 //extern unsigned char BatCellNumber;
 extern unsigned char BatType;
 extern unsigned char HeatFlag; //上电前温度标志位
-//************************************************************************
-//*******************************the end**********************************
-//************************************************************************
-//////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////
+ //***********************************************************************************
+//*******************************the end**********************************************
+//************************************************************************************
+///////////////////////////////////////////////////////////////////////////////////
+ /////////////////////////////////////////////////////////////////////////////////////
 
 

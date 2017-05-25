@@ -1,8 +1,8 @@
-call "%VS120COMNTOOLS%..\..\VC\vcvarsall.bat" AMD64
+set MATLAB=D:\matlab2016a
 
 cd .
 
-if "%1"=="" (nmake -f CellUnderVoltage.mk all) else (nmake -f CellUnderVoltage.mk %1)
+if "%1"=="" (D:\MATLAB~1\bin\win64\gmake -f CellUnderVoltage.mk all) else (D:\MATLAB~1\bin\win64\gmake -f CellUnderVoltage.mk %1)
 @if errorlevel 1 goto error_exit
 
 exit /B 0

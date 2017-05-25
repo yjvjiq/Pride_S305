@@ -1,29 +1,28 @@
 /*
- * File: DischargeOverCurrent.h
+ * File: DisChargeOverCurrent.h
  *
- * Code generated for Simulink model 'DischargeOverCurrent'.
+ * Code generated for Simulink model 'DisChargeOverCurrent'.
  *
- * Model version                  : 1.109
+ * Model version                  : 1.110
  * Simulink Coder version         : 8.10 (R2016a) 10-Feb-2016
- * C/C++ source code generated on : Tue Dec 20 16:18:38 2016
+ * C/C++ source code generated on : Tue May 23 17:08:05 2017
  *
  * Target selection: ert.tlc
- * Embedded hardware selection: 32-bit Generic
+ * Embedded hardware selection: Freescale->HC(S)12
  * Code generation objectives: Unspecified
  * Validation result: Not run
  */
 
-#ifndef RTW_HEADER_DischargeOverCurrent_h_
-#define RTW_HEADER_DischargeOverCurrent_h_
+#ifndef RTW_HEADER_DisChargeOverCurrent_h_
+#define RTW_HEADER_DisChargeOverCurrent_h_
 #include <stddef.h>
 #include <string.h>
-#ifndef DischargeOverCurrent_COMMON_INCLUDES_
-# define DischargeOverCurrent_COMMON_INCLUDES_
-#include <string.h>
+#ifndef DisChargeOverCurrent_COMMON_INCLUDES_
+# define DisChargeOverCurrent_COMMON_INCLUDES_
 #include "rtwtypes.h"
-#endif                                 /* DischargeOverCurrent_COMMON_INCLUDES_ */
+#endif                                 /* DisChargeOverCurrent_COMMON_INCLUDES_ */
 
-#include "DischargeOverCurrent_types.h"
+#include "DisChargeOverCurrent_types.h"
 
 /* Macros for accessing real-time model data structure */
 #ifndef rtmGetErrorStatus
@@ -34,99 +33,38 @@
 # define rtmSetErrorStatus(rtm, val)   ((rtm)->errorStatus = (val))
 #endif
 
+/* Block signals (auto storage) */
+typedef struct {
+  uint8_T F_lev_i;                     /* '<Root>/Logic' */
+} B_DisChargeOverCurrent_T;
+
 /* Block states (auto storage) for system '<Root>' */
 typedef struct {
-  real_T data;
-  uint8_T is_active_c1_DischargeOverCurre;/* '<Root>/Chart1' */
-  uint8_T t1;                          /* '<Root>/Chart1' */
-  uint8_T t2;                          /* '<Root>/Chart1' */
-  uint8_T t3;                          /* '<Root>/Chart1' */
-  uint8_T t22;                         /* '<Root>/Chart1' */
-  uint8_T t33;                         /* '<Root>/Chart1' */
-  uint8_T t11;                         /* '<Root>/Chart1' */
-  uint8_T t4;                          /* '<Root>/Chart1' */
-  boolean_T F_1;                       /* '<Root>/Chart1' */
-  boolean_T F_2;                       /* '<Root>/Chart1' */
-  boolean_T F_3;                       /* '<Root>/Chart1' */
-  boolean_T F_4;                       /* '<Root>/Chart1' */
-} DW_DischargeOverCurrent_T;
-
-/* External inputs (root inport signals with auto storage) */
-typedef struct {
-  real32_T g_BatSysTotalCur_g;         /* '<Root>/In1' */
-  real32_T curtValue_e;                /* '<Root>/In2' */
-} ExtU_DischargeOverCurrent_T;
-
-/* Parameters (auto storage) */
-struct P_DischargeOverCurrent_T_ {
-  real32_T Chart1_ThresholdFault_1;    /* Mask Parameter: Chart1_ThresholdFault_1
-                                        * Referenced by: '<Root>/Chart1'
-                                        */
-  real32_T Chart1_ThresholdFault_2;    /* Mask Parameter: Chart1_ThresholdFault_2
-                                        * Referenced by: '<Root>/Chart1'
-                                        */
-  real32_T Chart1_ThresholdFault_3;    /* Mask Parameter: Chart1_ThresholdFault_3
-                                        * Referenced by: '<Root>/Chart1'
-                                        */
-  real32_T Chart1_ThresholdFault_4;    /* Mask Parameter: Chart1_ThresholdFault_4
-                                        * Referenced by: '<Root>/Chart1'
-                                        */
-  real32_T Chart1_ThresholdRecover_1;  /* Mask Parameter: Chart1_ThresholdRecover_1
-                                        * Referenced by: '<Root>/Chart1'
-                                        */
-  real32_T Chart1_ThresholdRecover_2;  /* Mask Parameter: Chart1_ThresholdRecover_2
-                                        * Referenced by: '<Root>/Chart1'
-                                        */
-  real32_T Chart1_ThresholdRecover_3;  /* Mask Parameter: Chart1_ThresholdRecover_3
-                                        * Referenced by: '<Root>/Chart1'
-                                        */
-  uint8_T Chart1_Second_1;             /* Mask Parameter: Chart1_Second_1
-                                        * Referenced by: '<Root>/Chart1'
-                                        */
-  uint8_T Chart1_Second_11;            /* Mask Parameter: Chart1_Second_11
-                                        * Referenced by: '<Root>/Chart1'
-                                        */
-  uint8_T Chart1_Second_2;             /* Mask Parameter: Chart1_Second_2
-                                        * Referenced by: '<Root>/Chart1'
-                                        */
-  uint8_T Chart1_Second_22;            /* Mask Parameter: Chart1_Second_22
-                                        * Referenced by: '<Root>/Chart1'
-                                        */
-  uint8_T Chart1_Second_3;             /* Mask Parameter: Chart1_Second_3
-                                        * Referenced by: '<Root>/Chart1'
-                                        */
-  uint8_T Chart1_Second_33;            /* Mask Parameter: Chart1_Second_33
-                                        * Referenced by: '<Root>/Chart1'
-                                        */
-  uint8_T Chart1_Second_4;             /* Mask Parameter: Chart1_Second_4
-                                        * Referenced by: '<Root>/Chart1'
-                                        */
-};
+  uint8_T is_active_c3_DisChargeOverCurre;/* '<Root>/Logic' */
+  uint8_T is_F1;                       /* '<Root>/Logic' */
+  uint8_T temporalCounter_i1;          /* '<Root>/Logic' */
+} DW_DisChargeOverCurrent_T;
 
 /* Real-time Model Data Structure */
-struct tag_RTM_DischargeOverCurrent_T {
+struct tag_RTM_DisChargeOverCurrent_T {
   const char_T * volatile errorStatus;
 };
 
-/* Block parameters (auto storage) */
-extern P_DischargeOverCurrent_T DischargeOverCurrent_P;
+/* Block signals (auto storage) */
+extern B_DisChargeOverCurrent_T DisChargeOverCurrent_B;
 
 /* Block states (auto storage) */
-extern DW_DischargeOverCurrent_T DischargeOverCurrent_DW;
-
-/* External inputs (root inport signals with auto storage) */
-extern ExtU_DischargeOverCurrent_T DischargeOverCurrent_U;
+extern DW_DisChargeOverCurrent_T DisChargeOverCurrent_DW;
 
 /* Model entry point functions */
-extern void DischargeOverCurrent_initialize(void);
-extern void DischargeOverCurrent_terminate(void);
+extern void DisChargeOverCurrent_initialize(void);
+extern void DisChargeOverCurrent_terminate(void);
 
 /* Customized model step function */
-extern uint8_T DischargeOverCurrent_step(real32_T g_BatSysTotalCur, real32_T
-  curtValue);
+extern uint8_T DisChargeOverCurrent_custom(real32_T cur, real32_T curM);
 
 /* Real-time Model object */
-extern RT_MODEL_DischargeOverCurrent_T *const DischargeOverCurrent_M;
+extern RT_MODEL_DisChargeOverCurrent_T *const DisChargeOverCurrent_M;
 
 /*-
  * The generated code includes comments that allow you to trace directly
@@ -142,11 +80,10 @@ extern RT_MODEL_DischargeOverCurrent_T *const DischargeOverCurrent_M;
  *
  * Here is the system hierarchy for this model
  *
- * '<Root>' : 'DischargeOverCurrent'
- * '<S1>'   : 'DischargeOverCurrent/Chart1'
- * '<S2>'   : 'DischargeOverCurrent/Model Info'
+ * '<Root>' : 'DisChargeOverCurrent'
+ * '<S1>'   : 'DisChargeOverCurrent/Logic'
  */
-#endif                                 /* RTW_HEADER_DischargeOverCurrent_h_ */
+#endif                                 /* RTW_HEADER_DisChargeOverCurrent_h_ */
 
 /*
  * File trailer for generated code.

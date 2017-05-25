@@ -44,22 +44,14 @@
  *   uint8_T, uint16_T, uint32_T  - unsigned 8, 16, or 32 bit integers   *
  *   real32_T, real64_T           - 32 and 64 bit floating point numbers *
  *=======================================================================*/
-typedef signed char     int8_T;
-typedef unsigned char   uint8_T;
-typedef int             int16_T;
-typedef unsigned int    uint16_T;
-typedef long            int32_T;
-typedef unsigned long   uint32_T;
-typedef float           real32_T;
-typedef double          real64_T;
-
-#define U8  uint8_T
-#define U16 uint16_T
-#define U32 uint32_T
-#define S8  int8_T
-#define S16 int16_T
-#define S32 int32_T
-
+typedef signed char int8_T;
+typedef unsigned char uint8_T;
+typedef int int16_T;
+typedef unsigned int uint16_T;
+typedef long int32_T;
+typedef unsigned long uint32_T;
+typedef float real32_T;
+typedef double real64_T;
 
 /*===========================================================================*
  * Generic type definitions: boolean_T, char_T, byte_T, int_T, uint_T,       *

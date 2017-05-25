@@ -2,7 +2,7 @@
 ## Makefile generated for Simulink model 'ChargeOverCurrent'. 
 ## 
 ## Makefile     : ChargeOverCurrent.mk
-## Generated on : Fri Dec 09 10:15:57 2016
+## Generated on : Tue May 23 17:08:55 2017
 ## MATLAB Coder version: 3.1 (R2016a)
 ## 
 ## Build Info:
@@ -29,11 +29,11 @@
 PRODUCT_NAME              = ChargeOverCurrent
 MAKEFILE                  = ChargeOverCurrent.mk
 COMPUTER                  = PCWIN64
-MATLAB_ROOT               = D:/PROGRA~2/MATLAB/R2016a
-MATLAB_BIN                = D:/PROGRA~2/MATLAB/R2016a/bin
-MATLAB_ARCH_BIN           = D:/PROGRA~2/MATLAB/R2016a/bin/win64
+MATLAB_ROOT               = D:/MATLAB~1
+MATLAB_BIN                = D:/MATLAB~1/bin
+MATLAB_ARCH_BIN           = D:/MATLAB~1/bin/win64
 MASTER_ANCHOR_DIR         = 
-START_DIR                 = E:/Pride/项目/6116/FaultsModels
+START_DIR                 = E:/S305CODE
 ARCH                      = win64
 SOLVER                    = 
 SOLVER_OBJ                = 
@@ -160,7 +160,7 @@ BUILD_TYPE = "Top-Level Standalone Executable"
 ## INCLUDE PATHS
 ###########################################################################
 
-INCLUDES_BUILDINFO = -I$(MATLAB_ROOT)/simulink/include/sf_runtime -I$(START_DIR)/ChargeOverCurrent_ert_rtw -I$(START_DIR) -I$(MATLAB_ROOT)/extern/include -I$(MATLAB_ROOT)/simulink/include -I$(MATLAB_ROOT)/rtw/c/src -I$(MATLAB_ROOT)/rtw/c/src/ext_mode/common -I$(MATLAB_ROOT)/rtw/c/ert
+INCLUDES_BUILDINFO = -I$(MATLAB_ROOT)/simulink/include/sf_runtime -I$(START_DIR)/ChargeOverCurrent_ert_rtw -I$(START_DIR) -IE:/S305模型 -I$(MATLAB_ROOT)/extern/include -I$(MATLAB_ROOT)/simulink/include -I$(MATLAB_ROOT)/rtw/c/src -I$(MATLAB_ROOT)/rtw/c/src/ext_mode/common -I$(MATLAB_ROOT)/rtw/c/ert
 
 INCLUDES = $(INCLUDES_BUILDINFO)
 
@@ -178,7 +178,7 @@ DEFINES = $(DEFINES_BUILD_ARGS) $(DEFINES_IMPLIED) $(DEFINES_STANDARD)
 ## SOURCE FILES
 ###########################################################################
 
-SRCS = $(START_DIR)/ChargeOverCurrent_ert_rtw/ChargeOverCurrent.c $(START_DIR)/ChargeOverCurrent_ert_rtw/ChargeOverCurrent_data.c
+SRCS = $(START_DIR)/ChargeOverCurrent_ert_rtw/ChargeOverCurrent.c
 
 MAIN_SRC = $(START_DIR)/ChargeOverCurrent_ert_rtw/ert_main.c
 
@@ -188,7 +188,7 @@ ALL_SRCS = $(SRCS) $(MAIN_SRC)
 ## OBJECTS
 ###########################################################################
 
-OBJS = ChargeOverCurrent.obj ChargeOverCurrent_data.obj
+OBJS = ChargeOverCurrent.obj
 
 MAIN_OBJ = ert_main.obj
 

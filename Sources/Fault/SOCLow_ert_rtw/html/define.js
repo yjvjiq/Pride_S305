@@ -2,16 +2,16 @@ function CodeDefine() {
 this.def = new Array();
 this.def["rt_OneStep"] = {file: "ert_main_c.html",line:33,type:"fcn"};
 this.def["main"] = {file: "ert_main_c.html",line:76,type:"fcn"};
-this.def["SOCLow_DW"] = {file: "SOCLow_c.html",line:20,type:"var"};
-this.def["SOCLow_M_"] = {file: "SOCLow_c.html",line:23,type:"var"};
-this.def["SOCLow_M"] = {file: "SOCLow_c.html",line:24,type:"var"};
-this.def["SOCLow_step"] = {file: "SOCLow_c.html",line:27,type:"fcn"};
-this.def["SOCLow_initialize"] = {file: "SOCLow_c.html",line:356,type:"fcn"};
-this.def["SOCLow_terminate"] = {file: "SOCLow_c.html",line:378,type:"fcn"};
-this.def["DW_SOCLow_T"] = {file: "SOCLow_h.html",line:45,type:"type"};
-this.def["P_SOCLow_T"] = {file: "SOCLow_types_h.html",line:21,type:"type"};
-this.def["RT_MODEL_SOCLow_T"] = {file: "SOCLow_types_h.html",line:24,type:"type"};
-this.def["SOCLow_P"] = {file: "SOCLow_data_c.html",line:20,type:"var"};
+this.def["socLow_B"] = {file: "socLow_c.html",line:26,type:"var"};
+this.def["socLow_DW"] = {file: "socLow_c.html",line:29,type:"var"};
+this.def["socLow_M_"] = {file: "socLow_c.html",line:32,type:"var"};
+this.def["socLow_M"] = {file: "socLow_c.html",line:33,type:"var"};
+this.def["socLow_custom"] = {file: "socLow_c.html",line:36,type:"fcn"};
+this.def["socLow_initialize"] = {file: "socLow_c.html",line:104,type:"fcn"};
+this.def["socLow_terminate"] = {file: "socLow_c.html",line:127,type:"fcn"};
+this.def["B_socLow_T"] = {file: "socLow_h.html",line:39,type:"type"};
+this.def["DW_socLow_T"] = {file: "socLow_h.html",line:46,type:"type"};
+this.def["RT_MODEL_socLow_T"] = {file: "socLow_types_h.html",line:20,type:"type"};
 this.def["int8_T"] = {file: "rtwtypes_h.html",line:47,type:"type"};
 this.def["uint8_T"] = {file: "rtwtypes_h.html",line:48,type:"type"};
 this.def["int16_T"] = {file: "rtwtypes_h.html",line:49,type:"type"};
@@ -50,16 +50,14 @@ function Html2SrcLink() {
 	this.html2Root = new Array;
 	this.html2SrcPath["ert_main_c.html"] = "../ert_main.c";
 	this.html2Root["ert_main_c.html"] = "ert_main_c.html";
-	this.html2SrcPath["SOCLow_c.html"] = "../SOCLow.c";
-	this.html2Root["SOCLow_c.html"] = "SOCLow_c.html";
-	this.html2SrcPath["SOCLow_h.html"] = "../SOCLow.h";
-	this.html2Root["SOCLow_h.html"] = "SOCLow_h.html";
-	this.html2SrcPath["SOCLow_private_h.html"] = "../SOCLow_private.h";
-	this.html2Root["SOCLow_private_h.html"] = "SOCLow_private_h.html";
-	this.html2SrcPath["SOCLow_types_h.html"] = "../SOCLow_types.h";
-	this.html2Root["SOCLow_types_h.html"] = "SOCLow_types_h.html";
-	this.html2SrcPath["SOCLow_data_c.html"] = "../SOCLow_data.c";
-	this.html2Root["SOCLow_data_c.html"] = "SOCLow_data_c.html";
+	this.html2SrcPath["socLow_c.html"] = "../socLow.c";
+	this.html2Root["socLow_c.html"] = "socLow_c.html";
+	this.html2SrcPath["socLow_h.html"] = "../socLow.h";
+	this.html2Root["socLow_h.html"] = "socLow_h.html";
+	this.html2SrcPath["socLow_private_h.html"] = "../socLow_private.h";
+	this.html2Root["socLow_private_h.html"] = "socLow_private_h.html";
+	this.html2SrcPath["socLow_types_h.html"] = "../socLow_types.h";
+	this.html2Root["socLow_types_h.html"] = "socLow_types_h.html";
 	this.html2SrcPath["rtwtypes_h.html"] = "../rtwtypes.h";
 	this.html2Root["rtwtypes_h.html"] = "rtwtypes_h.html";
 	this.getLink2Src = function (htmlFileName) {
@@ -77,4 +75,4 @@ function Html2SrcLink() {
 }
 Html2SrcLink.instance = new Html2SrcLink();
 var fileList = [
-"ert_main_c.html","SOCLow_c.html","SOCLow_h.html","SOCLow_private_h.html","SOCLow_types_h.html","SOCLow_data_c.html","rtwtypes_h.html"];
+"ert_main_c.html","socLow_c.html","socLow_h.html","socLow_private_h.html","socLow_types_h.html","rtwtypes_h.html"];

@@ -115,7 +115,7 @@ Header file
 
 </table>
 <p>
-Function: <a href="CellOverVoltage_c.html#fcn_CellOverVoltage_step">CellOverVoltage_step</a>
+Function: <a href="CellOverVoltage_c.html#fcn_CellOverVoltage_custom">CellOverVoltage_custom</a>
 </p>
 <table width="100%" class="AltRow" cellspacing="0">
 <tr class="even">
@@ -124,7 +124,7 @@ Prototype
 </td>
 <td width="75%" align="left" valign="top">
 <b>
-uint8_T CellOverVoltage_step(real32_T g_CellHighestVol)
+uint8_T CellOverVoltage_custom(real32_T Vmax, uint8_T Modelflag)
 </b>
 
 </td>
@@ -186,13 +186,28 @@ Description
 1
 </td>
 <td align="left" valign="top">
-g_CellHighestVol
+Vmax
 </td>
 <td align="left" valign="top">
 real32_T
 </td>
 <td align="left" valign="top">
-<a href="matlab:coder.internal.code2model('CellOverVoltage:22')" name="code2model" class="code2model">&lt;Root&gt;/In1</a>
+<a href="matlab:coder.internal.code2model('CellOverVoltage:1')" name="code2model" class="code2model">&lt;Root&gt;/Vmax</a>
+</td>
+
+</tr>
+<tr class="odd">
+<td align="right" valign="top">
+2
+</td>
+<td align="left" valign="top">
+Modelflag
+</td>
+<td align="left" valign="top">
+uint8_T
+</td>
+<td align="left" valign="top">
+<a href="matlab:coder.internal.code2model('CellOverVoltage:6')" name="code2model" class="code2model">&lt;Root&gt;/Modelflag</a>
 </td>
 
 </tr>
@@ -228,7 +243,7 @@ Description
 uint8_T
 </td>
 <td align="left" valign="top">
-<a href="matlab:coder.internal.code2model('CellOverVoltage:38')" name="code2model" class="code2model">&lt;Root&gt;/Out1</a>
+<a href="matlab:coder.internal.code2model('CellOverVoltage:2')" name="code2model" class="code2model">&lt;Root&gt;/F_lev</a>
 </td>
 
 </tr>
@@ -348,7 +363,7 @@ Dimension
 </tr>
 <tr class="even">
 <td width="42%" align="left" valign="top">
-<a href="matlab:coder.internal.code2model('CellOverVoltage:22')" name="code2model" class="code2model">&lt;Root&gt;/In1</a>
+<a href="matlab:coder.internal.code2model('CellOverVoltage:1')" name="code2model" class="code2model">&lt;Root&gt;/Vmax</a>
 </td>
 <td width="26%" align="left" valign="top">
 <i>
@@ -358,6 +373,24 @@ Defined externally
 </td>
 <td width="21%" align="left" valign="top">
 real32_T
+</td>
+<td width="10%" align="right" valign="top">
+1
+</td>
+
+</tr>
+<tr class="odd">
+<td width="42%" align="left" valign="top">
+<a href="matlab:coder.internal.code2model('CellOverVoltage:6')" name="code2model" class="code2model">&lt;Root&gt;/Modelflag</a>
+</td>
+<td width="26%" align="left" valign="top">
+<i>
+Defined externally
+</i>
+
+</td>
+<td width="21%" align="left" valign="top">
+uint8_T
 </td>
 <td width="10%" align="right" valign="top">
 1
@@ -402,7 +435,7 @@ Dimension
 </tr>
 <tr class="even">
 <td width="42%" align="left" valign="top">
-<a href="matlab:coder.internal.code2model('CellOverVoltage:38')" name="code2model" class="code2model">&lt;Root&gt;/Out1</a>
+<a href="matlab:coder.internal.code2model('CellOverVoltage:2')" name="code2model" class="code2model">&lt;Root&gt;/F_lev</a>
 </td>
 <td width="26%" align="left" valign="top">
 <i>
@@ -426,246 +459,9 @@ Interface Parameters
 </a>
 
 </h3>
-<span title="Click to shrink or expand table" onclick="rtwTableShrink(this)">[-]</span><table width="100%" class="AltRow FirstColumn" cellspacing="0">
-<tr class="heading">
-<th width="42%" align="left" valign="top">
-<b>
-Parameter Source
-</b>
-
-</th>
-<th width="26%" align="left" valign="top">
-<b>
-Code Identifier
-</b>
-
-</th>
-<th width="21%" align="left" valign="top">
-<b>
-Data Type
-</b>
-
-</th>
-<th width="10%" align="right" valign="top">
-<b>
-Dimension
-</b>
-
-</th>
-
-</tr>
-<tr class="even">
-<td width="42%" align="left" valign="top">
-<a href="matlab:coder.internal.code2model('CellOverVoltage:4')" name="code2model" class="code2model">&lt;Root&gt;/Chart1</a>
-</td>
-<td width="26%" align="left" valign="top">
-CellOverVoltage_P.Chart1_ThresholdFault_1
-</td>
-<td width="21%" align="left" valign="top">
-real32_T
-</td>
-<td width="10%" align="right" valign="top">
-1
-</td>
-
-</tr>
-<tr class="odd">
-<td width="42%" align="left" valign="top">
-<a href="matlab:coder.internal.code2model('CellOverVoltage:4')" name="code2model" class="code2model">&lt;Root&gt;/Chart1</a>
-</td>
-<td width="26%" align="left" valign="top">
-CellOverVoltage_P.Chart1_ThresholdFault_2
-</td>
-<td width="21%" align="left" valign="top">
-real32_T
-</td>
-<td width="10%" align="right" valign="top">
-1
-</td>
-
-</tr>
-<tr class="even">
-<td width="42%" align="left" valign="top">
-<a href="matlab:coder.internal.code2model('CellOverVoltage:4')" name="code2model" class="code2model">&lt;Root&gt;/Chart1</a>
-</td>
-<td width="26%" align="left" valign="top">
-CellOverVoltage_P.Chart1_ThresholdFault_3
-</td>
-<td width="21%" align="left" valign="top">
-real32_T
-</td>
-<td width="10%" align="right" valign="top">
-1
-</td>
-
-</tr>
-<tr class="odd">
-<td width="42%" align="left" valign="top">
-<a href="matlab:coder.internal.code2model('CellOverVoltage:4')" name="code2model" class="code2model">&lt;Root&gt;/Chart1</a>
-</td>
-<td width="26%" align="left" valign="top">
-CellOverVoltage_P.Chart1_ThresholdFault_4
-</td>
-<td width="21%" align="left" valign="top">
-real32_T
-</td>
-<td width="10%" align="right" valign="top">
-1
-</td>
-
-</tr>
-<tr class="even">
-<td width="42%" align="left" valign="top">
-<a href="matlab:coder.internal.code2model('CellOverVoltage:4')" name="code2model" class="code2model">&lt;Root&gt;/Chart1</a>
-</td>
-<td width="26%" align="left" valign="top">
-CellOverVoltage_P.Chart1_ThresholdRecover_1
-</td>
-<td width="21%" align="left" valign="top">
-real32_T
-</td>
-<td width="10%" align="right" valign="top">
-1
-</td>
-
-</tr>
-<tr class="odd">
-<td width="42%" align="left" valign="top">
-<a href="matlab:coder.internal.code2model('CellOverVoltage:4')" name="code2model" class="code2model">&lt;Root&gt;/Chart1</a>
-</td>
-<td width="26%" align="left" valign="top">
-CellOverVoltage_P.Chart1_ThresholdRecover_2
-</td>
-<td width="21%" align="left" valign="top">
-real32_T
-</td>
-<td width="10%" align="right" valign="top">
-1
-</td>
-
-</tr>
-<tr class="even">
-<td width="42%" align="left" valign="top">
-<a href="matlab:coder.internal.code2model('CellOverVoltage:4')" name="code2model" class="code2model">&lt;Root&gt;/Chart1</a>
-</td>
-<td width="26%" align="left" valign="top">
-CellOverVoltage_P.Chart1_ThresholdRecover_3
-</td>
-<td width="21%" align="left" valign="top">
-real32_T
-</td>
-<td width="10%" align="right" valign="top">
-1
-</td>
-
-</tr>
-<tr class="odd">
-<td width="42%" align="left" valign="top">
-<a href="matlab:coder.internal.code2model('CellOverVoltage:4')" name="code2model" class="code2model">&lt;Root&gt;/Chart1</a>
-</td>
-<td width="26%" align="left" valign="top">
-CellOverVoltage_P.Chart1_Second_1
-</td>
-<td width="21%" align="left" valign="top">
-uint8_T
-</td>
-<td width="10%" align="right" valign="top">
-1
-</td>
-
-</tr>
-<tr class="even">
-<td width="42%" align="left" valign="top">
-<a href="matlab:coder.internal.code2model('CellOverVoltage:4')" name="code2model" class="code2model">&lt;Root&gt;/Chart1</a>
-</td>
-<td width="26%" align="left" valign="top">
-CellOverVoltage_P.Chart1_Second_11
-</td>
-<td width="21%" align="left" valign="top">
-uint8_T
-</td>
-<td width="10%" align="right" valign="top">
-1
-</td>
-
-</tr>
-<tr class="odd">
-<td width="42%" align="left" valign="top">
-<a href="matlab:coder.internal.code2model('CellOverVoltage:4')" name="code2model" class="code2model">&lt;Root&gt;/Chart1</a>
-</td>
-<td width="26%" align="left" valign="top">
-CellOverVoltage_P.Chart1_Second_2
-</td>
-<td width="21%" align="left" valign="top">
-uint8_T
-</td>
-<td width="10%" align="right" valign="top">
-1
-</td>
-
-</tr>
-<tr class="even">
-<td width="42%" align="left" valign="top">
-<a href="matlab:coder.internal.code2model('CellOverVoltage:4')" name="code2model" class="code2model">&lt;Root&gt;/Chart1</a>
-</td>
-<td width="26%" align="left" valign="top">
-CellOverVoltage_P.Chart1_Second_22
-</td>
-<td width="21%" align="left" valign="top">
-uint8_T
-</td>
-<td width="10%" align="right" valign="top">
-1
-</td>
-
-</tr>
-<tr class="odd">
-<td width="42%" align="left" valign="top">
-<a href="matlab:coder.internal.code2model('CellOverVoltage:4')" name="code2model" class="code2model">&lt;Root&gt;/Chart1</a>
-</td>
-<td width="26%" align="left" valign="top">
-CellOverVoltage_P.Chart1_Second_3
-</td>
-<td width="21%" align="left" valign="top">
-uint8_T
-</td>
-<td width="10%" align="right" valign="top">
-1
-</td>
-
-</tr>
-<tr class="even">
-<td width="42%" align="left" valign="top">
-<a href="matlab:coder.internal.code2model('CellOverVoltage:4')" name="code2model" class="code2model">&lt;Root&gt;/Chart1</a>
-</td>
-<td width="26%" align="left" valign="top">
-CellOverVoltage_P.Chart1_Second_33
-</td>
-<td width="21%" align="left" valign="top">
-uint8_T
-</td>
-<td width="10%" align="right" valign="top">
-1
-</td>
-
-</tr>
-<tr class="odd">
-<td width="42%" align="left" valign="top">
-<a href="matlab:coder.internal.code2model('CellOverVoltage:4')" name="code2model" class="code2model">&lt;Root&gt;/Chart1</a>
-</td>
-<td width="26%" align="left" valign="top">
-CellOverVoltage_P.Chart1_Second_4
-</td>
-<td width="21%" align="left" valign="top">
-uint8_T
-</td>
-<td width="10%" align="right" valign="top">
-1
-</td>
-
-</tr>
-
-</table>
+<p>
+No interface/tunable parameters in model.
+</p>
 <h3>
 <a name="sec_Data_Stores">
 Data Stores

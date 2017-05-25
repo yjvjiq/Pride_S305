@@ -179,217 +179,44 @@ void Transfer( CAN_DATATYPE mess)
         tt--; 
     
 }
-void BMS1(void) 
+void BMU(void) 
 {    
-    S223_BMS1();
-    Transfer(Model_BMS1);   
+    S223_BMU();
+    Transfer(Model_BMU);   
 } 
-void BMS2(void) 
+void BMUPack(void) 
 {
-    s_life++;
-    if(s_life>254)
-        s_life = 0;
-    S223_BMS2();
-    Transfer(Model_BMS2);   
+    S223_BMUPack();
+    Transfer(Model_BMUPack);   
 }
-void BMS3(void) 
+void CellVol(void) 
 {
-    S223_BMS3();
-    Transfer(Model_BMS3);   
+    S223_CellVol();
+    Transfer(Model_CellVol);   
 } 
-void BMS4(void) 
+void CellTemp(void) 
 {    
-    unsigned int buff;    
-    S223_BMS4();
-    buff = (unsigned int)(HIGHEST_ALLOWED_CHARGE_CV*100);   // HighestChaCellVol最高允许充电单体电压
-    Model_BMS4.Data[5] = buff;
-    Model_BMS4.Data[6] =((g_CellHighestVolBoxNum<<4)|(buff>>8));               
-    Model_BMS4.Data[7] = (unsigned int)(HIGHEST_TEM+40);    //HighestChaCellTemp最高允许充电单体电池温度
     
-    Transfer(Model_BMS4);   
-} 
-void BMS5(void) 
-{
-    LowestDischaTotalVol=LOWEST_ALLOWED_DISCHARGE_V;
-    S223_BMS5();
-    Transfer(Model_BMS5);   
-} 
-void BMS6(void) 
-{
-    S223_BMS6();
+    S223_CellTemp();
     
-    //Model_BMS6.Data[6]=0;
-    //Model_BMS6.Data[7]=0; 
-    Transfer(Model_BMS6);  
+    Transfer(Model_CellTemp);   
 } 
-void BMS7(void) 
+void BMSLimits1(void) 
 {
-    S223_BMS7();
-    Transfer(Model_BMS7);   
+    S223_BMSLimits1();
+    Transfer(Model_BMSLimits1);   
 } 
-void BMS8(void) 
+void BMSLimits2(void) 
 {
-    S223_BMS8();
-    if(stateCode==170) 
-    {
-        Model_BMS8.Data[3] =(unsigned int)(ActalChaVol/4); //充电正极接触器（充电机侧）电压
-    }
-    Model_BMS8.Data[2] =(unsigned int)(g_SystemVoltageV0/4); //充电正极接触器（电池侧）电压 ChaPCtorBatVol
-    if((stateCode>142)&&(stateCode<180)) 
-    {
-        Model_BMS8.Data[5] = (unsigned int)(g_BatSysTotalVolV3/4); //充电负极接触器（充电机侧）电压
-    }
-    Model_BMS8.Data[4] = (unsigned int)(g_SystemVoltageV0/4); //充电负极接触器（电池侧）电压 ChaNCtorBatVol
-    Transfer(Model_BMS8);   
+    S223_BMSLimits2();
+    Transfer(Model_BMSLimits2);  
 } 
-void BMS9(void) 
+void BMSFault(void) 
 {
-    unsigned int buff;    
-    S223_BMS9();
-    buff=(unsigned int)(g_BatSysTotalVolV3*10);     //充电接触器 1 后端电压 ChaCtorBndVol1
-    Model_BMS9.Data[0] = buff;                                //低字节
-    Model_BMS9.Data[1] = buff>>8;                             //高字节
-  
-    Transfer(Model_BMS9);   
+    S223_BMSFault();
+    Transfer(Model_BMSFault);   
 } 
-    
-void BMS10(void) 
-{
-    S223_BMS10();
-    Transfer(Model_BMS10);   
-}  
-void BMS11(void) 
-{
-    I2CReadDate();  //读取系统时间	  
-    YearBCD=CurrentTime[6];     //年
-    MonthBCD=CurrentTime[5];    //月
-    DayBCD=CurrentTime[4];     //日
-    HourBCD=CurrentTime[2];     //时
-    MinuteBCD=CurrentTime[1];    //分
-    VersionNum=1.0;
-    S223_BMS11();
-    Transfer(Model_BMS11);   
-}
-void Charge_1(void) 
-{   
-    unsigned int buff;    
-    S223_Charge_1(); 
-    buff=(unsigned int)(ActalChaVol*10);
-    Model_Charge_1.Data[6] = buff;                       // 充电电压（实时发送实际充电电压)
-    Model_Charge_1.Data[7] = buff>>8;                   //充电电压（实时发送实际充电电压)
-    
-    Transfer(Model_Charge_1);   
-}
-void Charge_2(void) 
-{
-    unsigned int buff;
-    S223_Charge_2();  
-    buff=(unsigned int)((ActalChaCur+3200)*10);      //充电电流（实时发送实际充电电流)
-    Model_Charge_2.Data[6] = buff;                       //充电电流（实时发送实际充电电流)
-    Model_Charge_2.Data[7] = buff>>8;                   //充电电流（实时发送实际充电电流)
-   
-    Transfer(Model_Charge_2);   
-} 
-void Charge_3(void) 
-{
-    S223_Charge_3();
-    Transfer(Model_Charge_3);   
-}
-void Information_1(void) 
-{
-    S223_Information_1();
-    Transfer(Model_Information_1);   
-} 
-void Information_2(void) 
-{
-    S223_Information_2();
-    Transfer(Model_Information_2);   
-}
-void Information_3(void) 
-{
-    
-    BatPackTempHighThold=45;
-    BatPackTempLowThold=-23;
-    BatVolLowThold=2.8;
-    BatVolHighThold=3.65;
-    S223_Information_3();
-    Transfer(Model_Information_3);   
-}
-void Information_4(void) 
-{
-    BatBoxNum=BMU_NUMBER;
-    BatFrameNum=BATTERYCELLNUMBER;                             //电池总串数 1   
-    BatTempNum=32;                           //电池总温度节点数  
-    BatRatedVol=(SYS_NOMINAL_V);                   //电池额定电压BatRatedVol  
-    BatRatedEnergy = (SYS_KWH);         //电池额定能量 BatRatedEnergy
-    BatRemainEnergy= (SYS_KWH*(g_SysSOC));        //电池剩余能量 BatRemainEnergy
-    S223_Information_4();
-    Transfer(Model_Information_4);   
-}
-void Information_5(void) 
-{
-    BoxCellNum1=48;     //第1箱单体数量              
-    BoxCellNum2=48;     //第2箱单体数量
-    BoxCellNum3=48;     //第3箱单体数量
-    BoxCellNum4=45;     //第4箱单体数量
-    //BoxCellNum5=33;     //第5箱单体数量
-    //BoxCellNum6=0x18;
-    S223_Information_5();
-    Transfer(Model_Information_5);   
-}
-void Information_6(void) 
-{
-    S223_Information_6();
-    Transfer(Model_Information_6);   
-}
-void Information_7(void) 
-{
-    BoxTempNum1=0x08;    //第1箱温度节点数量
-    BoxTempNum2=0x08;    //第2箱温度节点数量
-    BoxTempNum3=0x08;    //第3箱温度节点数量
-    BoxTempNum4=0x08;    //第4箱温度节点数量
-    //BoxTempNum5=0x06;    //第5箱温度节点数量
-    //BoxTempNum4=0x04;    //第6箱温度节点数量
-    S223_Information_7();
-    Transfer(Model_Information_7);   
-}
-void Information_8(void) 
-{
-    S223_Information_8();
-    Transfer(Model_Information_8);   
-}
-void Information_9(void) 
-{
-    BatRemainEnergy2=(SYS_KWH*(g_SysSOC));
-    BatRatedEnergy2 = (SYS_KWH);         //电池额定能量 BatRatedEnergy
-    S223_Information_9();
-    Transfer(Model_Information_9);   
-}
-void Information_10(void) 
-{
-    FacCode=0x03;
-    BatTypeCode=0x01;
-    Year=0x17;
-    Month=0x03;
-    Day=0x27;
-    SeralNum=1;
-    S223_Information_10();
-    Transfer(Model_Information_10);   
-}
-/*void Information_11(void) 
-{
-    
-    BatBoxHighestTemp1=BatBoxHighestTemp[0]-40;
-    BatBoxLowestTemp1=BatBoxLowestTemp[0]-40;
-    BatBoxHighestTemp2=BatBoxHighestTemp[1]-40;
-    BatBoxLowestTemp2=BatBoxLowestTemp[1]-40;
-    BatBoxHighestTemp3=BatBoxHighestTemp[2]-40;
-    BatBoxLowestTemp3=BatBoxLowestTemp[2]-40;
-    BatBoxHighestTemp4=BatBoxHighestTemp[3]-40;
-    BatBoxLowestTemp4=BatBoxLowestTemp[3]-40;
-    S223_Information_11();
-    Transfer(Model_Information_11);   
-}*/    
+
 //*************************************************************************************
 //* Function name  : BMS1(电池管理系统 1)
 //* period         : 100ms
@@ -792,6 +619,7 @@ void BMS11(void)
 //* EntryParameter : number范围0---47
 //* ReturnValue    : None
 //******************************************************************************
+/*
 void BMS_To_VCU_CellVoltage(unsigned char number)  
 {
     struct can_msg mg;
@@ -819,6 +647,7 @@ void BMS_To_VCU_CellVoltage(unsigned char number)
         tt--; 
 
 }  
+*/
 
 //******************************************************************************
 //* Function name  : BMS_To_VCU_CellTemp
@@ -827,6 +656,7 @@ void BMS_To_VCU_CellVoltage(unsigned char number)
 //* EntryParameter : number范围0---7
 //* ReturnValue    : None
 //******************************************************************************
+/*
 void BMS_To_VCU_CellTemp(unsigned char number) 
 {
     struct can_msg mg;
@@ -846,7 +676,7 @@ void BMS_To_VCU_CellTemp(unsigned char number)
     while((!MSCAN0SendMsg(mg))&&(tt>0))
         tt--; 
 }     
-
+*/
 
 //******************************************************************************
 //* Function name  : BMS_Information1
@@ -1193,6 +1023,7 @@ void BMS_Information10(void)
 //* EntryParameter : 
 //* ReturnValue    : None
 //******************************************************************************
+/*
 void Information_11(void) 
 {
     struct can_msg mg;
@@ -1216,7 +1047,9 @@ void Information_11(void)
     mg.id= 0x18FF33F4;
     while((!MSCAN0SendMsg(mg))&&(tt>0))
         tt--; 
-}     
+} 
+*/
+    
 //******************************************************************************
 //* Function name  : BMS_Information12
 //* period         : 1000ms
@@ -1425,6 +1258,7 @@ void ChargeInformation3(void)
 //* EntryParameter : 100ms
 //* ReturnValue    : None
 //******************************************************************************
+/*
 void bmsToPcTestCar(void)
 {
     struct can_msg mg;
@@ -1452,6 +1286,7 @@ void bmsToPcTestCar(void)
         tt--;
 	  
 }   
+*/
 //***********************************************************************
 //************************************************************************
 //*************************the end*************************************

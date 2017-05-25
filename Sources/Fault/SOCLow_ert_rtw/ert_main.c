@@ -1,21 +1,21 @@
 /*
  * File: ert_main.c
  *
- * Code generated for Simulink model 'SOCLow'.
+ * Code generated for Simulink model 'socLow'.
  *
- * Model version                  : 1.105
+ * Model version                  : 1.106
  * Simulink Coder version         : 8.10 (R2016a) 10-Feb-2016
- * C/C++ source code generated on : Fri Dec 09 10:24:01 2016
+ * C/C++ source code generated on : Tue May 23 17:07:06 2017
  *
  * Target selection: ert.tlc
- * Embedded hardware selection: 32-bit Generic
+ * Embedded hardware selection: Freescale->HC(S)12
  * Code generation objectives: Unspecified
  * Validation result: Not run
  */
 
 #include <stddef.h>
 #include <stdio.h>                     /* This ert_main.c example uses printf/fflush */
-#include "SOCLow.h"                    /* Model's header file */
+#include "socLow.h"                    /* Model's header file */
 #include "rtwtypes.h"
 
 /*
@@ -34,17 +34,17 @@ void rt_OneStep(void)
 {
   static boolean_T OverrunFlag = false;
 
-  /* '<Root>/In1' */
-  static real32_T g_SysSOC = 0.0F;
+  /* '<Root>/soc' */
+  static real32_T soc = 0.0F;
 
-  /* '<Root>/Out1' */
-  static uint8_T F_level;
+  /* '<Root>/F_lev' */
+  static uint8_T F_lev;
 
   /* Disable interrupts here */
 
   /* Check for overrun */
   if (OverrunFlag) {
-    rtmSetErrorStatus(SOCLow_M, "Overrun");
+    rtmSetErrorStatus(socLow_M, "Overrun");
     return;
   }
 
@@ -55,7 +55,7 @@ void rt_OneStep(void)
   /* Set model inputs here */
 
   /* Step the model */
-  F_level = SOCLow_step(g_SysSOC);
+  F_lev = socLow_custom(soc);
 
   /* Get model outputs here */
 
@@ -80,7 +80,7 @@ int_T main(int_T argc, const char *argv[])
   (void)(argv);
 
   /* Initialize model */
-  SOCLow_initialize();
+  socLow_initialize();
 
   /* Attach rt_OneStep to a timer or interrupt service routine with
    * period 1.0 seconds (the model's base sample time) here.  The
@@ -92,14 +92,14 @@ int_T main(int_T argc, const char *argv[])
          "Generated ERT main won't simulate model step behavior. "
          "To change this behavior select the 'MAT-file logging' option.\n");
   fflush((NULL));
-  while (rtmGetErrorStatus(SOCLow_M) == (NULL)) {
+  while (rtmGetErrorStatus(socLow_M) == (NULL)) {
     /*  Perform other application tasks here */
   }
 
   /* Disable rt_OneStep() here */
 
   /* Terminate model */
-  SOCLow_terminate();
+  socLow_terminate();
   return 0;
 }
 

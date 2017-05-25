@@ -3,12 +3,12 @@
  *
  * Code generated for Simulink model 'CellUnderVoltage'.
  *
- * Model version                  : 1.211
+ * Model version                  : 1.122
  * Simulink Coder version         : 8.10 (R2016a) 10-Feb-2016
- * C/C++ source code generated on : Mon Dec 12 10:46:31 2016
+ * C/C++ source code generated on : Tue May 23 17:10:20 2017
  *
  * Target selection: ert.tlc
- * Embedded hardware selection: 32-bit Generic
+ * Embedded hardware selection: Freescale->HC(S)12
  * Code generation objectives: Unspecified
  * Validation result: Not run
  */
@@ -34,11 +34,11 @@ void rt_OneStep(void)
 {
   static boolean_T OverrunFlag = false;
 
-  /* '<Root>/In1' */
-  static real32_T g_CellLowestVol = 0.0F;
+  /* '<Root>/Vmin' */
+  static real32_T Vmin = 0.0F;
 
-  /* '<Root>/Out1' */
-  static uint8_T F_level;
+  /* '<Root>/F_lev' */
+  static uint8_T F_lev;
 
   /* Disable interrupts here */
 
@@ -55,7 +55,7 @@ void rt_OneStep(void)
   /* Set model inputs here */
 
   /* Step the model */
-  F_level = CellUnderVoltage_step(g_CellLowestVol);
+  F_lev = CellUnderVoltage_custom(Vmin);
 
   /* Get model outputs here */
 

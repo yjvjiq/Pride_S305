@@ -2,20 +2,16 @@ function CodeDefine() {
 this.def = new Array();
 this.def["rt_OneStep"] = {file: "ert_main_c.html",line:33,type:"fcn"};
 this.def["main"] = {file: "ert_main_c.html",line:76,type:"fcn"};
-this.def["BatteryTemperatureHigh_DW"] = {file: "BatteryTemperatureHigh_c.html",line:20,type:"var"};
-this.def["BatteryTemperatureHigh_U"] = {file: "BatteryTemperatureHigh_c.html",line:23,type:"var"};
-this.def["BatteryTemperatureHigh_M_"] = {file: "BatteryTemperatureHigh_c.html",line:26,type:"var"};
-this.def["BatteryTemperatureHigh_M"] = {file: "BatteryTemperatureHigh_c.html",line:27,type:"var"};
-this.def["BatteryT_inner_default_F_0_true"] = {file: "BatteryTemperatureHigh_c.html",line:35,type:"fcn"};
-this.def["BatteryTemperatureHigh_F"] = {file: "BatteryTemperatureHigh_c.html",line:81,type:"fcn"};
-this.def["BatteryTemperatureHigh_step"] = {file: "BatteryTemperatureHigh_c.html",line:446,type:"fcn"};
-this.def["BatteryTemperatureHigh_initialize"] = {file: "BatteryTemperatureHigh_c.html",line:792,type:"fcn"};
-this.def["BatteryTemperatureHigh_terminate"] = {file: "BatteryTemperatureHigh_c.html",line:822,type:"fcn"};
-this.def["DW_BatteryTemperatureHigh_T"] = {file: "BatteryTemperatureHigh_h.html",line:50,type:"type"};
-this.def["ExtU_BatteryTemperatureHigh_T"] = {file: "BatteryTemperatureHigh_h.html",line:55,type:"type"};
-this.def["P_BatteryTemperatureHigh_T"] = {file: "BatteryTemperatureHigh_types_h.html",line:21,type:"type"};
-this.def["RT_MODEL_BatteryTemperatureHi_T"] = {file: "BatteryTemperatureHigh_types_h.html",line:24,type:"type"};
-this.def["BatteryTemperatureHigh_P"] = {file: "BatteryTemperatureHigh_data_c.html",line:20,type:"var"};
+this.def["BatteryTemperatureHigh_B"] = {file: "BatteryTemperatureHigh_c.html",line:31,type:"var"};
+this.def["BatteryTemperatureHigh_DW"] = {file: "BatteryTemperatureHigh_c.html",line:34,type:"var"};
+this.def["BatteryTemperatureHigh_M_"] = {file: "BatteryTemperatureHigh_c.html",line:37,type:"var"};
+this.def["BatteryTemperatureHigh_M"] = {file: "BatteryTemperatureHigh_c.html",line:38,type:"var"};
+this.def["BatteryTemperatureHigh_custom"] = {file: "BatteryTemperatureHigh_c.html",line:42,type:"fcn"};
+this.def["BatteryTemperatureHigh_initialize"] = {file: "BatteryTemperatureHigh_c.html",line:180,type:"fcn"};
+this.def["BatteryTemperatureHigh_terminate"] = {file: "BatteryTemperatureHigh_c.html",line:205,type:"fcn"};
+this.def["B_BatteryTemperatureHigh_T"] = {file: "BatteryTemperatureHigh_h.html",line:39,type:"type"};
+this.def["DW_BatteryTemperatureHigh_T"] = {file: "BatteryTemperatureHigh_h.html",line:48,type:"type"};
+this.def["RT_MODEL_BatteryTemperatureHi_T"] = {file: "BatteryTemperatureHigh_types_h.html",line:20,type:"type"};
 this.def["int8_T"] = {file: "rtwtypes_h.html",line:47,type:"type"};
 this.def["uint8_T"] = {file: "rtwtypes_h.html",line:48,type:"type"};
 this.def["int16_T"] = {file: "rtwtypes_h.html",line:49,type:"type"};
@@ -62,8 +58,6 @@ function Html2SrcLink() {
 	this.html2Root["BatteryTemperatureHigh_private_h.html"] = "BatteryTemperatureHigh_private_h.html";
 	this.html2SrcPath["BatteryTemperatureHigh_types_h.html"] = "../BatteryTemperatureHigh_types.h";
 	this.html2Root["BatteryTemperatureHigh_types_h.html"] = "BatteryTemperatureHigh_types_h.html";
-	this.html2SrcPath["BatteryTemperatureHigh_data_c.html"] = "../BatteryTemperatureHigh_data.c";
-	this.html2Root["BatteryTemperatureHigh_data_c.html"] = "BatteryTemperatureHigh_data_c.html";
 	this.html2SrcPath["rtwtypes_h.html"] = "../rtwtypes.h";
 	this.html2Root["rtwtypes_h.html"] = "rtwtypes_h.html";
 	this.getLink2Src = function (htmlFileName) {
@@ -81,4 +75,4 @@ function Html2SrcLink() {
 }
 Html2SrcLink.instance = new Html2SrcLink();
 var fileList = [
-"ert_main_c.html","BatteryTemperatureHigh_c.html","BatteryTemperatureHigh_h.html","BatteryTemperatureHigh_private_h.html","BatteryTemperatureHigh_types_h.html","BatteryTemperatureHigh_data_c.html","rtwtypes_h.html"];
+"ert_main_c.html","BatteryTemperatureHigh_c.html","BatteryTemperatureHigh_h.html","BatteryTemperatureHigh_private_h.html","BatteryTemperatureHigh_types_h.html","rtwtypes_h.html"];

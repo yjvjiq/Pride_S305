@@ -3,12 +3,12 @@
  *
  * Code generated for Simulink model 'CellOverVoltage'.
  *
- * Model version                  : 1.204
+ * Model version                  : 1.121
  * Simulink Coder version         : 8.10 (R2016a) 10-Feb-2016
- * C/C++ source code generated on : Fri Dec 09 10:09:13 2016
+ * C/C++ source code generated on : Tue May 23 17:11:09 2017
  *
  * Target selection: ert.tlc
- * Embedded hardware selection: 32-bit Generic
+ * Embedded hardware selection: Freescale->HC(S)12
  * Code generation objectives: Unspecified
  * Validation result: Not run
  */
@@ -34,11 +34,14 @@ void rt_OneStep(void)
 {
   static boolean_T OverrunFlag = false;
 
-  /* '<Root>/In1' */
-  static real32_T g_CellHighestVol = 0.0F;
+  /* '<Root>/Vmax' */
+  static real32_T Vmax = 0.0F;
 
-  /* '<Root>/Out1' */
-  static uint8_T F_level;
+  /* '<Root>/Modelflag' */
+  static uint8_T Modelflag = 0U;
+
+  /* '<Root>/F_lev' */
+  static uint8_T F_lev;
 
   /* Disable interrupts here */
 
@@ -55,7 +58,7 @@ void rt_OneStep(void)
   /* Set model inputs here */
 
   /* Step the model */
-  F_level = CellOverVoltage_step(g_CellHighestVol);
+  F_lev = CellOverVoltage_custom(Vmax, Modelflag);
 
   /* Get model outputs here */
 

@@ -115,7 +115,7 @@ Header file
 
 </table>
 <p>
-Function: <a href="BatteryTemperatureHigh_c.html#fcn_BatteryTemperatureHigh_step">BatteryTemperatureHigh_step</a>
+Function: <a href="BatteryTemperatureHigh_c.html#fcn_BatteryTemperatureHigh_custom">BatteryTemperatureHigh_custom</a>
 </p>
 <table width="100%" class="AltRow" cellspacing="0">
 <tr class="even">
@@ -124,7 +124,7 @@ Prototype
 </td>
 <td width="75%" align="left" valign="top">
 <b>
-uint8_T BatteryTemperatureHigh_step(uint8_T g_BatHighestTemp)
+uint8_T BatteryTemperatureHigh_custom(uint8_T Tmax)
 </b>
 
 </td>
@@ -186,13 +186,13 @@ Description
 1
 </td>
 <td align="left" valign="top">
-g_BatHighestTemp
+Tmax
 </td>
 <td align="left" valign="top">
 uint8_T
 </td>
 <td align="left" valign="top">
-<a href="matlab:coder.internal.code2model('BatteryTemperatureHigh:22')" name="code2model" class="code2model">&lt;Root&gt;/In1</a>
+<a href="matlab:coder.internal.code2model('BatteryTemperatureHigh:1')" name="code2model" class="code2model">&lt;Root&gt;/Tmax</a>
 </td>
 
 </tr>
@@ -228,7 +228,7 @@ Description
 uint8_T
 </td>
 <td align="left" valign="top">
-<a href="matlab:coder.internal.code2model('BatteryTemperatureHigh:31')" name="code2model" class="code2model">&lt;Root&gt;/Out1</a>
+<a href="matlab:coder.internal.code2model('BatteryTemperatureHigh:2')" name="code2model" class="code2model">&lt;Root&gt;/F_lev</a>
 </td>
 
 </tr>
@@ -348,7 +348,7 @@ Dimension
 </tr>
 <tr class="even">
 <td width="42%" align="left" valign="top">
-<a href="matlab:coder.internal.code2model('BatteryTemperatureHigh:22')" name="code2model" class="code2model">&lt;Root&gt;/In1</a>
+<a href="matlab:coder.internal.code2model('BatteryTemperatureHigh:1')" name="code2model" class="code2model">&lt;Root&gt;/Tmax</a>
 </td>
 <td width="26%" align="left" valign="top">
 <i>
@@ -402,7 +402,7 @@ Dimension
 </tr>
 <tr class="even">
 <td width="42%" align="left" valign="top">
-<a href="matlab:coder.internal.code2model('BatteryTemperatureHigh:31')" name="code2model" class="code2model">&lt;Root&gt;/Out1</a>
+<a href="matlab:coder.internal.code2model('BatteryTemperatureHigh:2')" name="code2model" class="code2model">&lt;Root&gt;/F_lev</a>
 </td>
 <td width="26%" align="left" valign="top">
 <i>
@@ -426,246 +426,9 @@ Interface Parameters
 </a>
 
 </h3>
-<span title="Click to shrink or expand table" onclick="rtwTableShrink(this)">[-]</span><table width="100%" class="AltRow FirstColumn" cellspacing="0">
-<tr class="heading">
-<th width="42%" align="left" valign="top">
-<b>
-Parameter Source
-</b>
-
-</th>
-<th width="26%" align="left" valign="top">
-<b>
-Code Identifier
-</b>
-
-</th>
-<th width="21%" align="left" valign="top">
-<b>
-Data Type
-</b>
-
-</th>
-<th width="10%" align="right" valign="top">
-<b>
-Dimension
-</b>
-
-</th>
-
-</tr>
-<tr class="even">
-<td width="42%" align="left" valign="top">
-<a href="matlab:coder.internal.code2model('BatteryTemperatureHigh:4')" name="code2model" class="code2model">&lt;Root&gt;/Chart1</a>
-</td>
-<td width="26%" align="left" valign="top">
-BatteryTemperatureHigh_P.Chart1_ThresholdFault_1
-</td>
-<td width="21%" align="left" valign="top">
-real32_T
-</td>
-<td width="10%" align="right" valign="top">
-1
-</td>
-
-</tr>
-<tr class="odd">
-<td width="42%" align="left" valign="top">
-<a href="matlab:coder.internal.code2model('BatteryTemperatureHigh:4')" name="code2model" class="code2model">&lt;Root&gt;/Chart1</a>
-</td>
-<td width="26%" align="left" valign="top">
-BatteryTemperatureHigh_P.Chart1_ThresholdFault_2
-</td>
-<td width="21%" align="left" valign="top">
-real32_T
-</td>
-<td width="10%" align="right" valign="top">
-1
-</td>
-
-</tr>
-<tr class="even">
-<td width="42%" align="left" valign="top">
-<a href="matlab:coder.internal.code2model('BatteryTemperatureHigh:4')" name="code2model" class="code2model">&lt;Root&gt;/Chart1</a>
-</td>
-<td width="26%" align="left" valign="top">
-BatteryTemperatureHigh_P.Chart1_ThresholdFault_3
-</td>
-<td width="21%" align="left" valign="top">
-real32_T
-</td>
-<td width="10%" align="right" valign="top">
-1
-</td>
-
-</tr>
-<tr class="odd">
-<td width="42%" align="left" valign="top">
-<a href="matlab:coder.internal.code2model('BatteryTemperatureHigh:4')" name="code2model" class="code2model">&lt;Root&gt;/Chart1</a>
-</td>
-<td width="26%" align="left" valign="top">
-BatteryTemperatureHigh_P.Chart1_ThresholdFault_4
-</td>
-<td width="21%" align="left" valign="top">
-real32_T
-</td>
-<td width="10%" align="right" valign="top">
-1
-</td>
-
-</tr>
-<tr class="even">
-<td width="42%" align="left" valign="top">
-<a href="matlab:coder.internal.code2model('BatteryTemperatureHigh:4')" name="code2model" class="code2model">&lt;Root&gt;/Chart1</a>
-</td>
-<td width="26%" align="left" valign="top">
-BatteryTemperatureHigh_P.Chart1_ThresholdRecover_1
-</td>
-<td width="21%" align="left" valign="top">
-real32_T
-</td>
-<td width="10%" align="right" valign="top">
-1
-</td>
-
-</tr>
-<tr class="odd">
-<td width="42%" align="left" valign="top">
-<a href="matlab:coder.internal.code2model('BatteryTemperatureHigh:4')" name="code2model" class="code2model">&lt;Root&gt;/Chart1</a>
-</td>
-<td width="26%" align="left" valign="top">
-BatteryTemperatureHigh_P.Chart1_ThresholdRecover_2
-</td>
-<td width="21%" align="left" valign="top">
-real32_T
-</td>
-<td width="10%" align="right" valign="top">
-1
-</td>
-
-</tr>
-<tr class="even">
-<td width="42%" align="left" valign="top">
-<a href="matlab:coder.internal.code2model('BatteryTemperatureHigh:4')" name="code2model" class="code2model">&lt;Root&gt;/Chart1</a>
-</td>
-<td width="26%" align="left" valign="top">
-BatteryTemperatureHigh_P.Chart1_ThresholdRecover_3
-</td>
-<td width="21%" align="left" valign="top">
-real32_T
-</td>
-<td width="10%" align="right" valign="top">
-1
-</td>
-
-</tr>
-<tr class="odd">
-<td width="42%" align="left" valign="top">
-<a href="matlab:coder.internal.code2model('BatteryTemperatureHigh:4')" name="code2model" class="code2model">&lt;Root&gt;/Chart1</a>
-</td>
-<td width="26%" align="left" valign="top">
-BatteryTemperatureHigh_P.Chart1_Second_1
-</td>
-<td width="21%" align="left" valign="top">
-uint8_T
-</td>
-<td width="10%" align="right" valign="top">
-1
-</td>
-
-</tr>
-<tr class="even">
-<td width="42%" align="left" valign="top">
-<a href="matlab:coder.internal.code2model('BatteryTemperatureHigh:4')" name="code2model" class="code2model">&lt;Root&gt;/Chart1</a>
-</td>
-<td width="26%" align="left" valign="top">
-BatteryTemperatureHigh_P.Chart1_Second_11
-</td>
-<td width="21%" align="left" valign="top">
-uint8_T
-</td>
-<td width="10%" align="right" valign="top">
-1
-</td>
-
-</tr>
-<tr class="odd">
-<td width="42%" align="left" valign="top">
-<a href="matlab:coder.internal.code2model('BatteryTemperatureHigh:4')" name="code2model" class="code2model">&lt;Root&gt;/Chart1</a>
-</td>
-<td width="26%" align="left" valign="top">
-BatteryTemperatureHigh_P.Chart1_Second_2
-</td>
-<td width="21%" align="left" valign="top">
-uint8_T
-</td>
-<td width="10%" align="right" valign="top">
-1
-</td>
-
-</tr>
-<tr class="even">
-<td width="42%" align="left" valign="top">
-<a href="matlab:coder.internal.code2model('BatteryTemperatureHigh:4')" name="code2model" class="code2model">&lt;Root&gt;/Chart1</a>
-</td>
-<td width="26%" align="left" valign="top">
-BatteryTemperatureHigh_P.Chart1_Second_22
-</td>
-<td width="21%" align="left" valign="top">
-uint8_T
-</td>
-<td width="10%" align="right" valign="top">
-1
-</td>
-
-</tr>
-<tr class="odd">
-<td width="42%" align="left" valign="top">
-<a href="matlab:coder.internal.code2model('BatteryTemperatureHigh:4')" name="code2model" class="code2model">&lt;Root&gt;/Chart1</a>
-</td>
-<td width="26%" align="left" valign="top">
-BatteryTemperatureHigh_P.Chart1_Second_3
-</td>
-<td width="21%" align="left" valign="top">
-uint8_T
-</td>
-<td width="10%" align="right" valign="top">
-1
-</td>
-
-</tr>
-<tr class="even">
-<td width="42%" align="left" valign="top">
-<a href="matlab:coder.internal.code2model('BatteryTemperatureHigh:4')" name="code2model" class="code2model">&lt;Root&gt;/Chart1</a>
-</td>
-<td width="26%" align="left" valign="top">
-BatteryTemperatureHigh_P.Chart1_Second_33
-</td>
-<td width="21%" align="left" valign="top">
-uint8_T
-</td>
-<td width="10%" align="right" valign="top">
-1
-</td>
-
-</tr>
-<tr class="odd">
-<td width="42%" align="left" valign="top">
-<a href="matlab:coder.internal.code2model('BatteryTemperatureHigh:4')" name="code2model" class="code2model">&lt;Root&gt;/Chart1</a>
-</td>
-<td width="26%" align="left" valign="top">
-BatteryTemperatureHigh_P.Chart1_Second_4
-</td>
-<td width="21%" align="left" valign="top">
-uint8_T
-</td>
-<td width="10%" align="right" valign="top">
-1
-</td>
-
-</tr>
-
-</table>
+<p>
+No interface/tunable parameters in model.
+</p>
 <h3>
 <a name="sec_Data_Stores">
 Data Stores

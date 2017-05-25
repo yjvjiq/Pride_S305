@@ -1,381 +1,130 @@
 /*
- * File: SOCLow.c
+ * File: socLow.c
  *
- * Code generated for Simulink model 'SOCLow'.
+ * Code generated for Simulink model 'socLow'.
  *
- * Model version                  : 1.105
+ * Model version                  : 1.106
  * Simulink Coder version         : 8.10 (R2016a) 10-Feb-2016
- * C/C++ source code generated on : Fri Dec 09 10:24:01 2016
+ * C/C++ source code generated on : Tue May 23 17:07:06 2017
  *
  * Target selection: ert.tlc
- * Embedded hardware selection: 32-bit Generic
+ * Embedded hardware selection: Freescale->HC(S)12
  * Code generation objectives: Unspecified
  * Validation result: Not run
  */
 
-#include "SOCLow.h"
-#include "SOCLow_private.h"
+#include "socLow.h"
+#include "socLow_private.h"
+
+/* Named constants for Chart: '<Root>/Chart' */
+#define socLow_IN_Delay10              ((uint8_T)1U)
+#define socLow_IN_Fault1               ((uint8_T)2U)
+#define socLow_IN_NO_ACTIVE_CHILD      ((uint8_T)0U)
+#define socLow_IN_Wait1                ((uint8_T)3U)
+
+/* Block signals (auto storage) */
+B_socLow_T socLow_B;
 
 /* Block states (auto storage) */
-DW_SOCLow_T SOCLow_DW;
+DW_socLow_T socLow_DW;
 
 /* Real-time model */
-RT_MODEL_SOCLow_T SOCLow_M_;
-RT_MODEL_SOCLow_T *const SOCLow_M = &SOCLow_M_;
+RT_MODEL_socLow_T socLow_M_;
+RT_MODEL_socLow_T *const socLow_M = &socLow_M_;
 
 /* Model step function */
-uint8_T SOCLow_step(real32_T g_SysSOC)
+uint8_T socLow_custom(real32_T soc)
 {
-  boolean_T guard6 = false;
-  uint8_T rtb_F_lev;
-  int32_T tmp;
-
   /* specified return value */
-  uint8_T F_level;
+  uint8_T F_lev;
 
-  /* Chart: '<Root>/Chart1' incorporates:
-   *  Inport: '<Root>/In1'
+  /* Chart: '<Root>/Chart' incorporates:
+   *  Inport: '<Root>/soc'
    */
-  /* Gateway: Chart1 */
-  /* During: Chart1 */
-  if (SOCLow_DW.is_active_c1_SOCLow == 0U) {
-    /* Entry: Chart1 */
-    SOCLow_DW.is_active_c1_SOCLow = 1U;
+  /* Gateway: Chart */
+  if (socLow_DW.temporalCounter_i1 < 15U) {
+    socLow_DW.temporalCounter_i1++;
+  }
 
-    /* Entry Internal: Chart1 */
-    /* Transition: '<S1>:193' */
-    /* Entry Internal 'F': '<S1>:342' */
-    /* Entry Internal 'F_1': '<S1>:296' */
-    /* Entry Internal 'F_1_true': '<S1>:256' */
-    /* Transition: '<S1>:380' */
-    if (g_SysSOC < SOCLow_P.Chart1_ThresholdFault_1) {
-      /* Transition: '<S1>:382' */
-      tmp = SOCLow_DW.t1 + 1;
-      if (tmp > 255) {
-        tmp = 255;
-      }
+  /* During: Chart */
+  if (socLow_DW.is_active_c3_socLow == 0U) {
+    /* Entry: Chart */
+    socLow_DW.is_active_c3_socLow = 1U;
 
-      SOCLow_DW.t1 = (uint8_T)tmp;
-      if (SOCLow_DW.t1 > SOCLow_P.Chart1_Second_1) {
-        /* Transition: '<S1>:388' */
-        /* Transition: '<S1>:389' */
-        SOCLow_DW.F_1 = true;
-
-        /* Transition: '<S1>:375' */
-        /* Transition: '<S1>:381' */
-      } else {
-        guard6 = true;
-      }
-    } else {
-      guard6 = true;
-    }
-
-    if (guard6 && ((g_SysSOC >= SOCLow_P.Chart1_ThresholdFault_1) &&
-                   (!SOCLow_DW.F_1))) {
-      /* Transition: '<S1>:384' */
-      /* Transition: '<S1>:387' */
-      SOCLow_DW.t1 = 0U;
-
-      /* Transition: '<S1>:381' */
-    } else {
-      /* Transition: '<S1>:390' */
-    }
-
-    /* Entry Internal 'F_2': '<S1>:192' */
-    /* Entry Internal 'F_2_true': '<S1>:321' */
-    /* Transition: '<S1>:350' */
-    guard6 = false;
-    if (g_SysSOC < SOCLow_P.Chart1_ThresholdFault_2) {
-      /* Transition: '<S1>:352' */
-      tmp = SOCLow_DW.t2 + 1;
-      if (tmp > 255) {
-        tmp = 255;
-      }
-
-      SOCLow_DW.t2 = (uint8_T)tmp;
-      if (SOCLow_DW.t2 > SOCLow_P.Chart1_Second_2) {
-        /* Transition: '<S1>:344' */
-        /* Transition: '<S1>:348' */
-        SOCLow_DW.F_2 = true;
-
-        /* Transition: '<S1>:351' */
-        /* Transition: '<S1>:343' */
-      } else {
-        guard6 = true;
-      }
-    } else {
-      guard6 = true;
-    }
-
-    if (guard6 && ((g_SysSOC >= SOCLow_P.Chart1_ThresholdFault_2) &&
-                   (!SOCLow_DW.F_2))) {
-      /* Transition: '<S1>:353' */
-      /* Transition: '<S1>:345' */
-      SOCLow_DW.t2 = 0U;
-
-      /* Transition: '<S1>:343' */
-    } else {
-      /* Transition: '<S1>:346' */
-    }
-
-    /* Entry Internal 'F_3': '<S1>:191' */
-    /* Entry Internal 'F_3_true': '<S1>:235' */
-    /* Transition: '<S1>:363' */
-    guard6 = false;
-    if (g_SysSOC < SOCLow_P.Chart1_ThresholdFault_3) {
-      /* Transition: '<S1>:369' */
-      tmp = SOCLow_DW.t3 + 1;
-      if (tmp > 255) {
-        tmp = 255;
-      }
-
-      SOCLow_DW.t3 = (uint8_T)tmp;
-      if (SOCLow_DW.t3 > SOCLow_P.Chart1_Second_3) {
-        /* Transition: '<S1>:373' */
-        /* Transition: '<S1>:359' */
-        SOCLow_DW.F_3 = true;
-
-        /* Transition: '<S1>:372' */
-        /* Transition: '<S1>:365' */
-      } else {
-        guard6 = true;
-      }
-    } else {
-      guard6 = true;
-    }
-
-    if (guard6 && ((g_SysSOC >= SOCLow_P.Chart1_ThresholdFault_3) &&
-                   (!SOCLow_DW.F_3))) {
-      /* Transition: '<S1>:367' */
-      /* Transition: '<S1>:368' */
-      SOCLow_DW.t3 = 0U;
-
-      /* Transition: '<S1>:365' */
-    } else {
-      /* Transition: '<S1>:366' */
-    }
-
-    /* Entry Internal 'F_0': '<S1>:442' */
-    /* Entry Internal 'F_0_true': '<S1>:416' */
-    /* Transition: '<S1>:427' */
-    if (SOCLow_DW.F_3) {
-      /* Transition: '<S1>:429' */
-      /* Transition: '<S1>:434' */
-      SOCLow_DW.F_2 = false;
-      SOCLow_DW.F_1 = false;
-      rtb_F_lev = 3U;
-
-      /* Transition: '<S1>:441' */
-      /* Transition: '<S1>:440' */
-      /* Transition: '<S1>:439' */
-      /* Transition: '<S1>:438' */
-    } else if (SOCLow_DW.F_2) {
-      /* Transition: '<S1>:430' */
-      /* Transition: '<S1>:435' */
-      SOCLow_DW.F_1 = false;
-      rtb_F_lev = 2U;
-
-      /* Transition: '<S1>:440' */
-      /* Transition: '<S1>:439' */
-      /* Transition: '<S1>:438' */
-    } else if (SOCLow_DW.F_1) {
-      /* Transition: '<S1>:431' */
-      /* Transition: '<S1>:436' */
-      rtb_F_lev = 1U;
-
-      /* Transition: '<S1>:439' */
-      /* Transition: '<S1>:438' */
-    } else {
-      /* Transition: '<S1>:433' */
-      rtb_F_lev = 0U;
-    }
+    /* Entry Internal: Chart */
+    /* Transition: '<S1>:104' */
+    /* Entry Internal 'F': '<S1>:103' */
+    /* Entry Internal 'F1': '<S1>:185' */
+    /* Transition: '<S1>:184' */
+    socLow_DW.is_F1 = socLow_IN_Wait1;
   } else {
-    /* During 'F': '<S1>:342' */
-    /* During 'F_1': '<S1>:296' */
-    /* Transition: '<S1>:295' */
-    /* Exit Internal 'F_1': '<S1>:296' */
-    /* Entry Internal 'F_1_true': '<S1>:256' */
-    /* Transition: '<S1>:380' */
-    if (g_SysSOC < SOCLow_P.Chart1_ThresholdFault_1) {
-      /* Transition: '<S1>:382' */
-      tmp = SOCLow_DW.t1 + 1;
-      if (tmp > 255) {
-        tmp = 255;
-      }
-
-      SOCLow_DW.t1 = (uint8_T)tmp;
-      if (SOCLow_DW.t1 > SOCLow_P.Chart1_Second_1) {
-        /* Transition: '<S1>:388' */
-        /* Transition: '<S1>:389' */
-        SOCLow_DW.F_1 = true;
-
-        /* Transition: '<S1>:375' */
-        /* Transition: '<S1>:381' */
+    /* During 'F': '<S1>:103' */
+    /* During 'F1': '<S1>:185' */
+    switch (socLow_DW.is_F1) {
+     case socLow_IN_Delay10:
+      /* During 'Delay10': '<S1>:181' */
+      if (!(soc < 0.1F)) {
+        /* Transition: '<S1>:188' */
+        socLow_DW.is_F1 = socLow_IN_Wait1;
       } else {
-        guard6 = true;
+        if (socLow_DW.temporalCounter_i1 >= 10) {
+          /* Transition: '<S1>:187' */
+          socLow_DW.is_F1 = socLow_IN_Fault1;
+
+          /* Entry 'Fault1': '<S1>:183' */
+          socLow_B.F_lev_i = 1U;
+        }
       }
-    } else {
-      guard6 = true;
-    }
+      break;
 
-    if (guard6 && ((g_SysSOC >= SOCLow_P.Chart1_ThresholdFault_1) &&
-                   (!SOCLow_DW.F_1))) {
-      /* Transition: '<S1>:384' */
-      /* Transition: '<S1>:387' */
-      SOCLow_DW.t1 = 0U;
+     case socLow_IN_Fault1:
+      /* During 'Fault1': '<S1>:183' */
+      socLow_B.F_lev_i = 1U;
+      break;
 
-      /* Transition: '<S1>:381' */
-    } else {
-      /* Transition: '<S1>:390' */
-    }
-
-    /* During 'F_2': '<S1>:192' */
-    /* Transition: '<S1>:319' */
-    /* Exit Internal 'F_2': '<S1>:192' */
-    /* Entry Internal 'F_2_true': '<S1>:321' */
-    /* Transition: '<S1>:350' */
-    guard6 = false;
-    if (g_SysSOC < SOCLow_P.Chart1_ThresholdFault_2) {
-      /* Transition: '<S1>:352' */
-      tmp = SOCLow_DW.t2 + 1;
-      if (tmp > 255) {
-        tmp = 255;
+     default:
+      /* During 'Wait1': '<S1>:182' */
+      if (soc < 0.1F) {
+        /* Transition: '<S1>:186' */
+        socLow_DW.is_F1 = socLow_IN_Delay10;
+        socLow_DW.temporalCounter_i1 = 0U;
       }
-
-      SOCLow_DW.t2 = (uint8_T)tmp;
-      if (SOCLow_DW.t2 > SOCLow_P.Chart1_Second_2) {
-        /* Transition: '<S1>:344' */
-        /* Transition: '<S1>:348' */
-        SOCLow_DW.F_2 = true;
-
-        /* Transition: '<S1>:351' */
-        /* Transition: '<S1>:343' */
-      } else {
-        guard6 = true;
-      }
-    } else {
-      guard6 = true;
-    }
-
-    if (guard6 && ((g_SysSOC >= SOCLow_P.Chart1_ThresholdFault_2) &&
-                   (!SOCLow_DW.F_2))) {
-      /* Transition: '<S1>:353' */
-      /* Transition: '<S1>:345' */
-      SOCLow_DW.t2 = 0U;
-
-      /* Transition: '<S1>:343' */
-    } else {
-      /* Transition: '<S1>:346' */
-    }
-
-    /* During 'F_3': '<S1>:191' */
-    /* Transition: '<S1>:277' */
-    /* Exit Internal 'F_3': '<S1>:191' */
-    /* Entry Internal 'F_3_true': '<S1>:235' */
-    /* Transition: '<S1>:363' */
-    guard6 = false;
-    if (g_SysSOC < SOCLow_P.Chart1_ThresholdFault_3) {
-      /* Transition: '<S1>:369' */
-      tmp = SOCLow_DW.t3 + 1;
-      if (tmp > 255) {
-        tmp = 255;
-      }
-
-      SOCLow_DW.t3 = (uint8_T)tmp;
-      if (SOCLow_DW.t3 > SOCLow_P.Chart1_Second_3) {
-        /* Transition: '<S1>:373' */
-        /* Transition: '<S1>:359' */
-        SOCLow_DW.F_3 = true;
-
-        /* Transition: '<S1>:372' */
-        /* Transition: '<S1>:365' */
-      } else {
-        guard6 = true;
-      }
-    } else {
-      guard6 = true;
-    }
-
-    if (guard6 && ((g_SysSOC >= SOCLow_P.Chart1_ThresholdFault_3) &&
-                   (!SOCLow_DW.F_3))) {
-      /* Transition: '<S1>:367' */
-      /* Transition: '<S1>:368' */
-      SOCLow_DW.t3 = 0U;
-
-      /* Transition: '<S1>:365' */
-    } else {
-      /* Transition: '<S1>:366' */
-    }
-
-    /* During 'F_0': '<S1>:442' */
-    /* Transition: '<S1>:415' */
-    /* Exit Internal 'F_0': '<S1>:442' */
-    /* Entry Internal 'F_0_true': '<S1>:416' */
-    /* Transition: '<S1>:427' */
-    if (SOCLow_DW.F_3) {
-      /* Transition: '<S1>:429' */
-      /* Transition: '<S1>:434' */
-      SOCLow_DW.F_2 = false;
-      SOCLow_DW.F_1 = false;
-      rtb_F_lev = 3U;
-
-      /* Transition: '<S1>:441' */
-      /* Transition: '<S1>:440' */
-      /* Transition: '<S1>:439' */
-      /* Transition: '<S1>:438' */
-    } else if (SOCLow_DW.F_2) {
-      /* Transition: '<S1>:430' */
-      /* Transition: '<S1>:435' */
-      SOCLow_DW.F_1 = false;
-      rtb_F_lev = 2U;
-
-      /* Transition: '<S1>:440' */
-      /* Transition: '<S1>:439' */
-      /* Transition: '<S1>:438' */
-    } else if (SOCLow_DW.F_1) {
-      /* Transition: '<S1>:431' */
-      /* Transition: '<S1>:436' */
-      rtb_F_lev = 1U;
-
-      /* Transition: '<S1>:439' */
-      /* Transition: '<S1>:438' */
-    } else {
-      /* Transition: '<S1>:433' */
-      rtb_F_lev = 0U;
+      break;
     }
   }
 
-  /* End of Chart: '<Root>/Chart1' */
+  /* End of Chart: '<Root>/Chart' */
 
-  /* Outport: '<Root>/Out1' */
-  F_level = rtb_F_lev;
-  return F_level;
+  /* Outport: '<Root>/F_lev' */
+  F_lev = socLow_B.F_lev_i;
+  return F_lev;
 }
 
 /* Model initialize function */
-void SOCLow_initialize(void)
+void socLow_initialize(void)
 {
   /* Registration code */
 
   /* initialize error status */
-  rtmSetErrorStatus(SOCLow_M, (NULL));
+  rtmSetErrorStatus(socLow_M, (NULL));
+
+  /* block I/O */
+  (void) memset(((void *) &socLow_B), 0,
+                sizeof(B_socLow_T));
 
   /* states (dwork) */
-  (void) memset((void *)&SOCLow_DW, 0,
-                sizeof(DW_SOCLow_T));
+  (void) memset((void *)&socLow_DW, 0,
+                sizeof(DW_socLow_T));
 
-  /* SystemInitialize for Chart: '<Root>/Chart1' */
-  SOCLow_DW.is_active_c1_SOCLow = 0U;
-  SOCLow_DW.t2 = 0U;
-  SOCLow_DW.t3 = 0U;
-  SOCLow_DW.t1 = 0U;
-  SOCLow_DW.F_1 = false;
-  SOCLow_DW.F_2 = false;
-  SOCLow_DW.F_3 = false;
+  /* SystemInitialize for Chart: '<Root>/Chart' */
+  socLow_DW.is_F1 = socLow_IN_NO_ACTIVE_CHILD;
+  socLow_DW.temporalCounter_i1 = 0U;
+  socLow_DW.is_active_c3_socLow = 0U;
+  socLow_B.F_lev_i = 0U;
 }
 
 /* Model terminate function */
-void SOCLow_terminate(void)
+void socLow_terminate(void)
 {
   /* (no terminate code required) */
 }

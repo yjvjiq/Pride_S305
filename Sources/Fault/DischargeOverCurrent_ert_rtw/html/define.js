@@ -2,20 +2,16 @@ function CodeDefine() {
 this.def = new Array();
 this.def["rt_OneStep"] = {file: "ert_main_c.html",line:33,type:"fcn"};
 this.def["main"] = {file: "ert_main_c.html",line:79,type:"fcn"};
-this.def["DischargeOverCurrent_DW"] = {file: "DischargeOverCurrent_c.html",line:20,type:"var"};
-this.def["DischargeOverCurrent_U"] = {file: "DischargeOverCurrent_c.html",line:23,type:"var"};
-this.def["DischargeOverCurrent_M_"] = {file: "DischargeOverCurrent_c.html",line:26,type:"var"};
-this.def["DischargeOverCurrent_M"] = {file: "DischargeOverCurrent_c.html",line:27,type:"var"};
-this.def["Discharg_inner_default_F_0_true"] = {file: "DischargeOverCurrent_c.html",line:35,type:"fcn"};
-this.def["DischargeOverCurrent_F"] = {file: "DischargeOverCurrent_c.html",line:81,type:"fcn"};
-this.def["DischargeOverCurrent_step"] = {file: "DischargeOverCurrent_c.html",line:463,type:"fcn"};
-this.def["DischargeOverCurrent_initialize"] = {file: "DischargeOverCurrent_c.html",line:823,type:"fcn"};
-this.def["DischargeOverCurrent_terminate"] = {file: "DischargeOverCurrent_c.html",line:857,type:"fcn"};
-this.def["DW_DischargeOverCurrent_T"] = {file: "DischargeOverCurrent_h.html",line:52,type:"type"};
-this.def["ExtU_DischargeOverCurrent_T"] = {file: "DischargeOverCurrent_h.html",line:58,type:"type"};
-this.def["P_DischargeOverCurrent_T"] = {file: "DischargeOverCurrent_types_h.html",line:21,type:"type"};
-this.def["RT_MODEL_DischargeOverCurrent_T"] = {file: "DischargeOverCurrent_types_h.html",line:24,type:"type"};
-this.def["DischargeOverCurrent_P"] = {file: "DischargeOverCurrent_data_c.html",line:20,type:"var"};
+this.def["DisChargeOverCurrent_B"] = {file: "DisChargeOverCurrent_c.html",line:28,type:"var"};
+this.def["DisChargeOverCurrent_DW"] = {file: "DisChargeOverCurrent_c.html",line:31,type:"var"};
+this.def["DisChargeOverCurrent_M_"] = {file: "DisChargeOverCurrent_c.html",line:34,type:"var"};
+this.def["DisChargeOverCurrent_M"] = {file: "DisChargeOverCurrent_c.html",line:35,type:"var"};
+this.def["DisChargeOverCurrent_custom"] = {file: "DisChargeOverCurrent_c.html",line:39,type:"fcn"};
+this.def["DisChargeOverCurrent_initialize"] = {file: "DisChargeOverCurrent_c.html",line:137,type:"fcn"};
+this.def["DisChargeOverCurrent_terminate"] = {file: "DisChargeOverCurrent_c.html",line:160,type:"fcn"};
+this.def["B_DisChargeOverCurrent_T"] = {file: "DisChargeOverCurrent_h.html",line:39,type:"type"};
+this.def["DW_DisChargeOverCurrent_T"] = {file: "DisChargeOverCurrent_h.html",line:46,type:"type"};
+this.def["RT_MODEL_DisChargeOverCurrent_T"] = {file: "DisChargeOverCurrent_types_h.html",line:20,type:"type"};
 this.def["int8_T"] = {file: "rtwtypes_h.html",line:47,type:"type"};
 this.def["uint8_T"] = {file: "rtwtypes_h.html",line:48,type:"type"};
 this.def["int16_T"] = {file: "rtwtypes_h.html",line:49,type:"type"};
@@ -54,16 +50,14 @@ function Html2SrcLink() {
 	this.html2Root = new Array;
 	this.html2SrcPath["ert_main_c.html"] = "../ert_main.c";
 	this.html2Root["ert_main_c.html"] = "ert_main_c.html";
-	this.html2SrcPath["DischargeOverCurrent_c.html"] = "../DischargeOverCurrent.c";
-	this.html2Root["DischargeOverCurrent_c.html"] = "DischargeOverCurrent_c.html";
-	this.html2SrcPath["DischargeOverCurrent_h.html"] = "../DischargeOverCurrent.h";
-	this.html2Root["DischargeOverCurrent_h.html"] = "DischargeOverCurrent_h.html";
-	this.html2SrcPath["DischargeOverCurrent_private_h.html"] = "../DischargeOverCurrent_private.h";
-	this.html2Root["DischargeOverCurrent_private_h.html"] = "DischargeOverCurrent_private_h.html";
-	this.html2SrcPath["DischargeOverCurrent_types_h.html"] = "../DischargeOverCurrent_types.h";
-	this.html2Root["DischargeOverCurrent_types_h.html"] = "DischargeOverCurrent_types_h.html";
-	this.html2SrcPath["DischargeOverCurrent_data_c.html"] = "../DischargeOverCurrent_data.c";
-	this.html2Root["DischargeOverCurrent_data_c.html"] = "DischargeOverCurrent_data_c.html";
+	this.html2SrcPath["DisChargeOverCurrent_c.html"] = "../DisChargeOverCurrent.c";
+	this.html2Root["DisChargeOverCurrent_c.html"] = "DisChargeOverCurrent_c.html";
+	this.html2SrcPath["DisChargeOverCurrent_h.html"] = "../DisChargeOverCurrent.h";
+	this.html2Root["DisChargeOverCurrent_h.html"] = "DisChargeOverCurrent_h.html";
+	this.html2SrcPath["DisChargeOverCurrent_private_h.html"] = "../DisChargeOverCurrent_private.h";
+	this.html2Root["DisChargeOverCurrent_private_h.html"] = "DisChargeOverCurrent_private_h.html";
+	this.html2SrcPath["DisChargeOverCurrent_types_h.html"] = "../DisChargeOverCurrent_types.h";
+	this.html2Root["DisChargeOverCurrent_types_h.html"] = "DisChargeOverCurrent_types_h.html";
 	this.html2SrcPath["rtwtypes_h.html"] = "../rtwtypes.h";
 	this.html2Root["rtwtypes_h.html"] = "rtwtypes_h.html";
 	this.getLink2Src = function (htmlFileName) {
@@ -81,4 +75,4 @@ function Html2SrcLink() {
 }
 Html2SrcLink.instance = new Html2SrcLink();
 var fileList = [
-"ert_main_c.html","DischargeOverCurrent_c.html","DischargeOverCurrent_h.html","DischargeOverCurrent_private_h.html","DischargeOverCurrent_types_h.html","DischargeOverCurrent_data_c.html","rtwtypes_h.html"];
+"ert_main_c.html","DisChargeOverCurrent_c.html","DisChargeOverCurrent_h.html","DisChargeOverCurrent_private_h.html","DisChargeOverCurrent_types_h.html","rtwtypes_h.html"];

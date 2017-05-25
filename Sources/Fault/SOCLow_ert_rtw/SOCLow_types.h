@@ -1,29 +1,25 @@
 /*
- * File: SOCLow_types.h
+ * File: socLow_types.h
  *
- * Code generated for Simulink model 'SOCLow'.
+ * Code generated for Simulink model 'socLow'.
  *
- * Model version                  : 1.105
+ * Model version                  : 1.106
  * Simulink Coder version         : 8.10 (R2016a) 10-Feb-2016
- * C/C++ source code generated on : Fri Dec 09 10:24:01 2016
+ * C/C++ source code generated on : Tue May 23 17:07:06 2017
  *
  * Target selection: ert.tlc
- * Embedded hardware selection: 32-bit Generic
+ * Embedded hardware selection: Freescale->HC(S)12
  * Code generation objectives: Unspecified
  * Validation result: Not run
  */
 
-#ifndef RTW_HEADER_SOCLow_types_h_
-#define RTW_HEADER_SOCLow_types_h_
-#include "rtwtypes.h"
-
-/* Parameters (auto storage) */
-typedef struct P_SOCLow_T_ P_SOCLow_T;
+#ifndef RTW_HEADER_socLow_types_h_
+#define RTW_HEADER_socLow_types_h_
 
 /* Forward declaration for rtModel */
-typedef struct tag_RTM_SOCLow_T RT_MODEL_SOCLow_T;
+typedef struct tag_RTM_socLow_T RT_MODEL_socLow_T;
 
-#endif                                 /* RTW_HEADER_SOCLow_types_h_ */
+#endif                                 /* RTW_HEADER_socLow_types_h_ */
 
 /*
  * File trailer for generated code.

@@ -1,4 +1,4 @@
-MODEL=DischargeOverCurrent
+MODEL=DisChargeOverCurrent
 NUMST=1
 NCSTATES=0
 HAVESTDIO

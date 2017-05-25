@@ -1,21 +1,21 @@
 /*
  * File: ert_main.c
  *
- * Code generated for Simulink model 'DischargeOverCurrent'.
+ * Code generated for Simulink model 'DisChargeOverCurrent'.
  *
- * Model version                  : 1.109
+ * Model version                  : 1.110
  * Simulink Coder version         : 8.10 (R2016a) 10-Feb-2016
- * C/C++ source code generated on : Tue Dec 20 16:18:38 2016
+ * C/C++ source code generated on : Tue May 23 17:08:05 2017
  *
  * Target selection: ert.tlc
- * Embedded hardware selection: 32-bit Generic
+ * Embedded hardware selection: Freescale->HC(S)12
  * Code generation objectives: Unspecified
  * Validation result: Not run
  */
 
 #include <stddef.h>
 #include <stdio.h>                     /* This ert_main.c example uses printf/fflush */
-#include "DischargeOverCurrent.h"      /* Model's header file */
+#include "DisChargeOverCurrent.h"      /* Model's header file */
 #include "rtwtypes.h"
 
 /*
@@ -34,20 +34,20 @@ void rt_OneStep(void)
 {
   static boolean_T OverrunFlag = false;
 
-  /* '<Root>/In1' */
-  static real32_T g_BatSysTotalCur = 0.0F;
+  /* '<Root>/cur' */
+  static real32_T cur = 0.0F;
 
-  /* '<Root>/In2' */
-  static real32_T curtValue = 0.0F;
+  /* '<Root>/curM' */
+  static real32_T curM = 0.0F;
 
-  /* '<Root>/Out1' */
-  static uint8_T F_level;
+  /* '<Root>/F_lev' */
+  static uint8_T F_lev;
 
   /* Disable interrupts here */
 
   /* Check for overrun */
   if (OverrunFlag) {
-    rtmSetErrorStatus(DischargeOverCurrent_M, "Overrun");
+    rtmSetErrorStatus(DisChargeOverCurrent_M, "Overrun");
     return;
   }
 
@@ -58,7 +58,7 @@ void rt_OneStep(void)
   /* Set model inputs here */
 
   /* Step the model */
-  F_level = DischargeOverCurrent_step(g_BatSysTotalCur, curtValue);
+  F_lev = DisChargeOverCurrent_custom(cur, curM);
 
   /* Get model outputs here */
 
@@ -83,7 +83,7 @@ int_T main(int_T argc, const char *argv[])
   (void)(argv);
 
   /* Initialize model */
-  DischargeOverCurrent_initialize();
+  DisChargeOverCurrent_initialize();
 
   /* Attach rt_OneStep to a timer or interrupt service routine with
    * period 1.0 seconds (the model's base sample time) here.  The
@@ -95,14 +95,14 @@ int_T main(int_T argc, const char *argv[])
          "Generated ERT main won't simulate model step behavior. "
          "To change this behavior select the 'MAT-file logging' option.\n");
   fflush((NULL));
-  while (rtmGetErrorStatus(DischargeOverCurrent_M) == (NULL)) {
+  while (rtmGetErrorStatus(DisChargeOverCurrent_M) == (NULL)) {
     /*  Perform other application tasks here */
   }
 
   /* Disable rt_OneStep() here */
 
   /* Terminate model */
-  DischargeOverCurrent_terminate();
+  DisChargeOverCurrent_terminate();
   return 0;
 }
 

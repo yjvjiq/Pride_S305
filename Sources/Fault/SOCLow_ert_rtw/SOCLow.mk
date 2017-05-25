@@ -1,13 +1,13 @@
 ###########################################################################
-## Makefile generated for Simulink model 'SOCLow'. 
+## Makefile generated for Simulink model 'socLow'. 
 ## 
-## Makefile     : SOCLow.mk
-## Generated on : Fri Dec 09 10:24:04 2016
+## Makefile     : socLow.mk
+## Generated on : Tue May 23 17:07:10 2017
 ## MATLAB Coder version: 3.1 (R2016a)
 ## 
 ## Build Info:
 ## 
-## Final product: $(RELATIVE_PATH_TO_ANCHOR)/SOCLow.exe
+## Final product: $(RELATIVE_PATH_TO_ANCHOR)/socLow.exe
 ## Product type : executable
 ## Build type   : Top-Level Standalone Executable
 ## 
@@ -26,22 +26,22 @@
 # GEN_LNK_SCRIPT          Perl script to generate the command file
 # CMD_FILE                Command file
 
-PRODUCT_NAME              = SOCLow
-MAKEFILE                  = SOCLow.mk
+PRODUCT_NAME              = socLow
+MAKEFILE                  = socLow.mk
 COMPUTER                  = PCWIN64
-MATLAB_ROOT               = D:/PROGRA~2/MATLAB/R2016a
-MATLAB_BIN                = D:/PROGRA~2/MATLAB/R2016a/bin
-MATLAB_ARCH_BIN           = D:/PROGRA~2/MATLAB/R2016a/bin/win64
+MATLAB_ROOT               = D:/MATLAB~1
+MATLAB_BIN                = D:/MATLAB~1/bin
+MATLAB_ARCH_BIN           = D:/MATLAB~1/bin/win64
 MASTER_ANCHOR_DIR         = 
-START_DIR                 = E:/Pride/项目/6116/FaultsModels
+START_DIR                 = E:/S305CODE
 ARCH                      = win64
 SOLVER                    = 
 SOLVER_OBJ                = 
 CLASSIC_INTERFACE         = 0
 TGT_FCN_LIB               = None
-MODELREF_LINK_RSPFILE_NAME = SOCLow_ref.rsp
+MODELREF_LINK_RSPFILE_NAME = socLow_ref.rsp
 RELATIVE_PATH_TO_ANCHOR   = ..
-MODELREF_LINK_RSPFILE     = SOCLow_ref.rsp
+MODELREF_LINK_RSPFILE     = socLow_ref.rsp
 PERL                      = $(MATLAB_ROOT)/sys/perl/win32/bin/perl.exe
 GEN_LNK_SCRIPT            = $(MATLAB_ROOT)/rtw/c/tools/mkvc_lnk.pl
 CMD_FILE                  = $(PRODUCT_NAME).lnk
@@ -152,7 +152,7 @@ MAKE_EXT            = .mk
 ## OUTPUT INFO
 ###########################################################################
 
-PRODUCT = $(RELATIVE_PATH_TO_ANCHOR)/SOCLow.exe
+PRODUCT = $(RELATIVE_PATH_TO_ANCHOR)/socLow.exe
 PRODUCT_TYPE = "executable"
 BUILD_TYPE = "Top-Level Standalone Executable"
 
@@ -160,7 +160,7 @@ BUILD_TYPE = "Top-Level Standalone Executable"
 ## INCLUDE PATHS
 ###########################################################################
 
-INCLUDES_BUILDINFO = -I$(MATLAB_ROOT)/simulink/include/sf_runtime -I$(START_DIR)/SOCLow_ert_rtw -I$(START_DIR) -I$(MATLAB_ROOT)/extern/include -I$(MATLAB_ROOT)/simulink/include -I$(MATLAB_ROOT)/rtw/c/src -I$(MATLAB_ROOT)/rtw/c/src/ext_mode/common -I$(MATLAB_ROOT)/rtw/c/ert
+INCLUDES_BUILDINFO = -I$(MATLAB_ROOT)/simulink/include/sf_runtime -I$(START_DIR)/socLow_ert_rtw -I$(START_DIR) -IE:/S305模型 -I$(MATLAB_ROOT)/extern/include -I$(MATLAB_ROOT)/simulink/include -I$(MATLAB_ROOT)/rtw/c/src -I$(MATLAB_ROOT)/rtw/c/src/ext_mode/common -I$(MATLAB_ROOT)/rtw/c/ert
 
 INCLUDES = $(INCLUDES_BUILDINFO)
 
@@ -170,7 +170,7 @@ INCLUDES = $(INCLUDES_BUILDINFO)
 
 DEFINES_BUILD_ARGS = -DONESTEPFCN=1 -DTERMFCN=1 -DMAT_FILE=0 -DMULTI_INSTANCE_CODE=0 -DINTEGER_CODE=0 -DMT=0 -DCLASSIC_INTERFACE=0 -DALLOCATIONFCN=0
 DEFINES_IMPLIED = -DTID01EQ=0
-DEFINES_STANDARD = -DMODEL=SOCLow -DNUMST=1 -DNCSTATES=0 -DHAVESTDIO
+DEFINES_STANDARD = -DMODEL=socLow -DNUMST=1 -DNCSTATES=0 -DHAVESTDIO
 
 DEFINES = $(DEFINES_BUILD_ARGS) $(DEFINES_IMPLIED) $(DEFINES_STANDARD)
 
@@ -178,9 +178,9 @@ DEFINES = $(DEFINES_BUILD_ARGS) $(DEFINES_IMPLIED) $(DEFINES_STANDARD)
 ## SOURCE FILES
 ###########################################################################
 
-SRCS = $(START_DIR)/SOCLow_ert_rtw/SOCLow.c $(START_DIR)/SOCLow_ert_rtw/SOCLow_data.c
+SRCS = $(START_DIR)/socLow_ert_rtw/socLow.c
 
-MAIN_SRC = $(START_DIR)/SOCLow_ert_rtw/ert_main.c
+MAIN_SRC = $(START_DIR)/socLow_ert_rtw/ert_main.c
 
 ALL_SRCS = $(SRCS) $(MAIN_SRC)
 
@@ -188,7 +188,7 @@ ALL_SRCS = $(SRCS) $(MAIN_SRC)
 ## OBJECTS
 ###########################################################################
 
-OBJS = SOCLow.obj SOCLow_data.obj
+OBJS = socLow.obj
 
 MAIN_OBJ = ert_main.obj
 
@@ -286,7 +286,7 @@ $(PRODUCT) : $(OBJS) $(PREBUILT_OBJS) $(MAIN_OBJ)
 	$(CC) $(CFLAGS) -Fo"$@" $(subst /,\,"$<")
 
 
-%.obj : $(START_DIR)/SOCLow_ert_rtw/%.c
+%.obj : $(START_DIR)/socLow_ert_rtw/%.c
 	$(CC) $(CFLAGS) -Fo"$@" $(subst /,\,"$<")
 
 

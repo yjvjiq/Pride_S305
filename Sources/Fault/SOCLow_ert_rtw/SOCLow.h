@@ -1,28 +1,28 @@
 /*
- * File: SOCLow.h
+ * File: socLow.h
  *
- * Code generated for Simulink model 'SOCLow'.
+ * Code generated for Simulink model 'socLow'.
  *
- * Model version                  : 1.105
+ * Model version                  : 1.106
  * Simulink Coder version         : 8.10 (R2016a) 10-Feb-2016
- * C/C++ source code generated on : Fri Dec 09 10:24:01 2016
+ * C/C++ source code generated on : Tue May 23 17:07:06 2017
  *
  * Target selection: ert.tlc
- * Embedded hardware selection: 32-bit Generic
+ * Embedded hardware selection: Freescale->HC(S)12
  * Code generation objectives: Unspecified
  * Validation result: Not run
  */
 
-#ifndef RTW_HEADER_SOCLow_h_
-#define RTW_HEADER_SOCLow_h_
+#ifndef RTW_HEADER_socLow_h_
+#define RTW_HEADER_socLow_h_
 #include <stddef.h>
 #include <string.h>
-#ifndef SOCLow_COMMON_INCLUDES_
-# define SOCLow_COMMON_INCLUDES_
+#ifndef socLow_COMMON_INCLUDES_
+# define socLow_COMMON_INCLUDES_
 #include "rtwtypes.h"
-#endif                                 /* SOCLow_COMMON_INCLUDES_ */
+#endif                                 /* socLow_COMMON_INCLUDES_ */
 
-#include "SOCLow_types.h"
+#include "socLow_types.h"
 
 /* Macros for accessing real-time model data structure */
 #ifndef rtmGetErrorStatus
@@ -33,59 +33,38 @@
 # define rtmSetErrorStatus(rtm, val)   ((rtm)->errorStatus = (val))
 #endif
 
+/* Block signals (auto storage) */
+typedef struct {
+  uint8_T F_lev_i;                     /* '<Root>/Chart' */
+} B_socLow_T;
+
 /* Block states (auto storage) for system '<Root>' */
 typedef struct {
-  uint8_T is_active_c1_SOCLow;         /* '<Root>/Chart1' */
-  uint8_T t2;                          /* '<Root>/Chart1' */
-  uint8_T t3;                          /* '<Root>/Chart1' */
-  uint8_T t1;                          /* '<Root>/Chart1' */
-  boolean_T F_1;                       /* '<Root>/Chart1' */
-  boolean_T F_2;                       /* '<Root>/Chart1' */
-  boolean_T F_3;                       /* '<Root>/Chart1' */
-} DW_SOCLow_T;
-
-/* Parameters (auto storage) */
-struct P_SOCLow_T_ {
-  real32_T Chart1_ThresholdFault_1;    /* Mask Parameter: Chart1_ThresholdFault_1
-                                        * Referenced by: '<Root>/Chart1'
-                                        */
-  real32_T Chart1_ThresholdFault_2;    /* Mask Parameter: Chart1_ThresholdFault_2
-                                        * Referenced by: '<Root>/Chart1'
-                                        */
-  real32_T Chart1_ThresholdFault_3;    /* Mask Parameter: Chart1_ThresholdFault_3
-                                        * Referenced by: '<Root>/Chart1'
-                                        */
-  uint8_T Chart1_Second_1;             /* Mask Parameter: Chart1_Second_1
-                                        * Referenced by: '<Root>/Chart1'
-                                        */
-  uint8_T Chart1_Second_2;             /* Mask Parameter: Chart1_Second_2
-                                        * Referenced by: '<Root>/Chart1'
-                                        */
-  uint8_T Chart1_Second_3;             /* Mask Parameter: Chart1_Second_3
-                                        * Referenced by: '<Root>/Chart1'
-                                        */
-};
+  uint8_T is_active_c3_socLow;         /* '<Root>/Chart' */
+  uint8_T is_F1;                       /* '<Root>/Chart' */
+  uint8_T temporalCounter_i1;          /* '<Root>/Chart' */
+} DW_socLow_T;
 
 /* Real-time Model Data Structure */
-struct tag_RTM_SOCLow_T {
+struct tag_RTM_socLow_T {
   const char_T * volatile errorStatus;
 };
 
-/* Block parameters (auto storage) */
-extern P_SOCLow_T SOCLow_P;
+/* Block signals (auto storage) */
+extern B_socLow_T socLow_B;
 
 /* Block states (auto storage) */
-extern DW_SOCLow_T SOCLow_DW;
+extern DW_socLow_T socLow_DW;
 
 /* Model entry point functions */
-extern void SOCLow_initialize(void);
-extern void SOCLow_terminate(void);
+extern void socLow_initialize(void);
+extern void socLow_terminate(void);
 
 /* Customized model step function */
-extern uint8_T SOCLow_step(real32_T g_SysSOC);
+extern uint8_T socLow_custom(real32_T soc);
 
 /* Real-time Model object */
-extern RT_MODEL_SOCLow_T *const SOCLow_M;
+extern RT_MODEL_socLow_T *const socLow_M;
 
 /*-
  * The generated code includes comments that allow you to trace directly
@@ -101,11 +80,10 @@ extern RT_MODEL_SOCLow_T *const SOCLow_M;
  *
  * Here is the system hierarchy for this model
  *
- * '<Root>' : 'SOCLow'
- * '<S1>'   : 'SOCLow/Chart1'
- * '<S2>'   : 'SOCLow/Model Info'
+ * '<Root>' : 'socLow'
+ * '<S1>'   : 'socLow/Chart'
  */
-#endif                                 /* RTW_HEADER_SOCLow_h_ */
+#endif                                 /* RTW_HEADER_socLow_h_ */
 
 /*
  * File trailer for generated code.

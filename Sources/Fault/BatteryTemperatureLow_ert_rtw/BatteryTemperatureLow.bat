@@ -1,8 +1,8 @@
-set MATLAB=D:\Program Files\MATLAB\R2016a
+set MATLAB=D:\matlab2016a
 
 cd .
 
-if "%1"=="" (D:\PROGRA~2\MATLAB\R2016a\bin\win64\gmake -f BatteryTemperatureLow.mk all) else (D:\PROGRA~2\MATLAB\R2016a\bin\win64\gmake -f BatteryTemperatureLow.mk %1)
+if "%1"=="" (D:\MATLAB~1\bin\win64\gmake -f BatteryTemperatureLow.mk all) else (D:\MATLAB~1\bin\win64\gmake -f BatteryTemperatureLow.mk %1)
 @if errorlevel 1 goto error_exit
 
 exit /B 0
