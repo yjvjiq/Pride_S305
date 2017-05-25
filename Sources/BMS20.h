@@ -124,7 +124,8 @@
 #include "CellTemperatureUnbalance_private.h"  //温度不均衡故障检测必须要加入到头文件中
 //#include "Battery_fault_level.h"
 
-#include "Feedback176Ah.h"           //SOF与回馈共用的模型也要加入到头文件中
+/*
+#include "Feedback176Ah_COMMON_INCLUDES_.h"           //SOF与回馈共用的模型也要加入到头文件中
 #include "Feedback176Ah_private.h"
 #include "SOF176Ah.h"
 #include "SOF176Ah_private.h"
@@ -132,6 +133,7 @@
 #include "FT176Ah_private.h"
 #include "rtwtypes.h"
 #include "look2_iflf_linlcapw.h"
+*/
 
 #include "canmessgae.h"
 //#include "can_message.h"
@@ -148,6 +150,13 @@
 #define uchar unsigned char
 #define uint  unsigned int
 #define ulong unsigned long
+
+#define U8  uint8_T
+#define U16 uint16_T
+#define U32 uint32_T
+#define S8  int8_T
+#define S16 int16_T
+#define S32 int32_T
 
 #define HIGH 0
 #define LOW 1
@@ -199,50 +208,50 @@ enum slaveNumber
 //************************************************************************
 enum parameter_list
 {
-    PARA_SOC_VALUE,    //SOC实际值
-    PARA_BATCELLNUMBER,//单体数量
-    PARA_BATTYPE,  //电池类型号
-    PARA_WHOLE_CAPACITY,//电池组总容量
-    PARA_BMU_NUMBER,//  电池数量
+    PARA_SOC_VALUE,                     // SOC实际值
+    PARA_BATCELLNUMBER,                 // 单体数量
+    PARA_BATTYPE,                       // 电池类型号
+    PARA_WHOLE_CAPACITY,                // 电池组总容量
+    PARA_BMU_NUMBER,                    // 电池数量
 
-    PARA_DIFFERENCE_SINGLE_V, // 单体电压均衡值
-    PARA_DIFFERENCE_SINGLE_T, // 电池温度均衡值
-    PARA_BALANCE_ON_VOLTAGE, //均衡开启电压值
-    PARA_BALANCE_OFF_VOLTAGE,//均衡关闭电压值
-    PARA_O_SOC_VALUE,// soc高
+    PARA_DIFFERENCE_SINGLE_V,           // 单体电压均衡值
+    PARA_DIFFERENCE_SINGLE_T,           // 电池温度均衡值
+    PARA_BALANCE_ON_VOLTAGE,            // 均衡开启电压值
+    PARA_BALANCE_OFF_VOLTAGE,           // 均衡关闭电压值
+    PARA_O_SOC_VALUE,                   // soc高
 
-    PARA_OO_SOC_VALUE,// soc过高
-    PARA_L_SOC_VALUE,//soc低
-    PARA_LL_SOC_VALUE,//soc过低
-    PARA_O_WHOLE_VOLTAGE, // 总电压值高
-    PARA_OO_WHOLE_VOLTAGE, // 总电压值极高
+    PARA_OO_SOC_VALUE,                  // soc过高
+    PARA_L_SOC_VALUE,                   // soc低
+    PARA_LL_SOC_VALUE,                  // soc过低
+    PARA_O_WHOLE_VOLTAGE,               // 总电压值高
+    PARA_OO_WHOLE_VOLTAGE,              // 总电压值极高
 
-    PARA_L_WHOLE_VOLTAGE, // 总电压值低
-    PARA_LL_WHOLE_VOLTAGE, // 总电压值极低
-    PARA_O_CELL_VOLTAGE, // 单体电压高（过压值）
-    PARA_OO_CELL_VOLTAGE, // 单体电压极高
-    PARA_L_CELL_VOLTAGE,//  单体电压低(欠压值)
+    PARA_L_WHOLE_VOLTAGE,               // 总电压值低
+    PARA_LL_WHOLE_VOLTAGE,              // 总电压值极低
+    PARA_O_CELL_VOLTAGE,                // 单体电压高（过压值）
+    PARA_OO_CELL_VOLTAGE,               // 单体电压极高
+    PARA_L_CELL_VOLTAGE,                // 单体电压低(欠压值)
 
-    PARA_LL_CELL_VOLTAGE,//  单体电压极低
-    PARA_O_TEMPERATURE,//过温
-    PARA_OO_TEMPERATURE,//温度极高
-    PARA_L_TEMPERATURE, // 温度低
-    PARA_LL_TEMPERATURE, // 温度极低
+    PARA_LL_CELL_VOLTAGE,               // 单体电压极低
+    PARA_O_TEMPERATURE,                 // 过温
+    PARA_OO_TEMPERATURE,                // 温度极高
+    PARA_L_TEMPERATURE,                 // 温度低
+    PARA_LL_TEMPERATURE,                // 温度极低
 
-    PARA_O_CONSISTENCY_V, //电压一致性差
-    PARA_OO_CONSISTENCY_V,//电压一致性极差
-    PARA_O_CONSISTENCY_T, //温度一致性差
-    PARA_OO_CONSISTENCY_T,//温度一致性极差
-    PARA_CURRENT,//   过电流值
+    PARA_O_CONSISTENCY_V,               // 电压一致性差
+    PARA_OO_CONSISTENCY_V,              // 电压一致性极差
+    PARA_O_CONSISTENCY_T,               // 温度一致性差
+    PARA_OO_CONSISTENCY_T,              // 温度一致性极差
+    PARA_CURRENT,                       // 过电流值
 
-    PARA_HIGHEST_RECHARGE_VOLTAGE,//允许最高充电端电压
-    PARA_HIGHEST_RECHARGE_CURRENT,//最大允许充电电流 
-    PARA_HIGHEST_RECHARGE_CURRENT_TIME,//允许最大充电电流时间
-    PARA_HIGHEST_DISCHARGE_CURRENT,//最大允许放电电流 
-    PARA_HIGHEST_CHARGE_CURRENT_TIME,//允许放电电流最大电流时间
+    PARA_HIGHEST_RECHARGE_VOLTAGE,      // 允许最高充电端电压
+    PARA_HIGHEST_RECHARGE_CURRENT,      // 最大允许充电电流 
+    PARA_HIGHEST_RECHARGE_CURRENT_TIME, // 允许最大充电电流时间
+    PARA_HIGHEST_DISCHARGE_CURRENT,     // 最大允许放电电流 
+    PARA_HIGHEST_CHARGE_CURRENT_TIME,   // 允许放电电流最大电流时间
 
-    PARA_L_ISOLATION_RESISTANCE, //  绝缘电阻低值
-    PARA_LL_ISOLATION_RESISTANCE, //  绝缘电阻过低值
+    PARA_L_ISOLATION_RESISTANCE,        // 绝缘电阻低值
+    PARA_LL_ISOLATION_RESISTANCE,       // 绝缘电阻过低值
 
     PARA_ENDFLAG
 };
@@ -254,10 +263,10 @@ enum storage_list
     INDEX,
     TOTAL_VOLTAGE,
     TOTAL_CURRENT,
-    PARA_SOC_DISPLAY, // SOC值
-    SYS_CONTACTORS_STATE,  //总正总负继电器状态
+    PARA_SOC_DISPLAY,       // SOC值
+    SYS_CONTACTORS_STATE,   // 总正总负继电器状态
 
-    PARA_ERROR_LEVER,//故障等级值  1:1级故障  2:2级故障
+    PARA_ERROR_LEVER,       // 故障等级值  1:1级故障  2:2级故障
     CAUTION_FLAG_1,
     CAUTION_FLAG_2,
     CAUTION_FLAG_3,
@@ -288,7 +297,7 @@ enum storage_list
     VOLT_K3,
     
     VOLT_B3,
-    VERIFICATION  //校验
+    VERIFICATION    //校验
 };
 
 //************************************************************************
